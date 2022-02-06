@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Add Donation Rate | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+function showHidePanel1()
+{
+	for(var i=0;i< document.login.type.length;i++)
+	{
+		if(document.login.type[i].checked)
+		{
+		var type = document.login.type[i].value;
+		}
+	}
+
+	if(type == '1')
+	{
+	document.getElementById('showamount').style.display = 'inline';
+	document.getElementById('showpercentage').style.display = 'none';
+	}
+	else if(type == '2')
+	{
+	document.getElementById('showamount').style.display = 'none';
+	document.getElementById('showpercentage').style.display = 'inline';
+	}
+}
+</script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body onload="showHidePanel1();">
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration" class="active"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Add Donation Rate</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-row">
+						<div class="formarea-row-left">Name <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="name" type="text" class="textbox-normal *{nameclass}*" size="20" value="*{name}*"></div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Donation Type</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="1" name="type" id="1" *{typechecked1}* onclick="showHidePanel1();"> <label for="1">Value</label></li>
+									<li><input type="radio" value="2" name="type" id="2" *{typechecked2}* onclick="showHidePanel1();"> <label for="2">Percentage</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row" id="showamount">
+						<div class="formarea-row-left">Amount <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="amount" type="number" step="any" class="textbox-small *{amountclass}*" size="20" value="*{amount}*"></div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+					<div class="formarea-row" id="showpercentage">
+						<div class="formarea-row-left">Percentage <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="percentage" type="number" class="textbox-small *{percentageclass}*" size="20" value="*{percentage}*"></div>
+							<div class="formarea-row-right-error">*{error3}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Round Up To (Optional)</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="roundUpTo" type="number" step="any" class="textbox-small *{roundUpToclass}*" size="20" value="*{roundUpTo}*"></div>
+							<div class="formarea-row-right-error">*{error4}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save &amp; Edit" class="button" /> <input type="submit" name="saveexit" value="Save &amp; Exit" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

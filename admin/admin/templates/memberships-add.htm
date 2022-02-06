@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Add Membership | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+function showHidePanel1()
+{
+	for(var i=0;i< document.login.membershipLengthType.length;i++)
+	{
+		if(document.login.membershipLengthType[i].checked)
+		{
+		var membershipLengthType = document.login.membershipLengthType[i].value;
+		}
+	}
+
+	if(membershipLengthType == '4')
+	{
+	document.getElementById('expirydate').style.display = 'inline';
+	document.getElementById('expiryduration').style.display = 'none';
+	}
+	else if(membershipLengthType == '0')
+	{
+	document.getElementById('expirydate').style.display = 'none';
+	document.getElementById('expiryduration').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('expirydate').style.display = 'none';
+	document.getElementById('expiryduration').style.display = 'none';
+	}
+}
+function showHidePanel2()
+{
+	for(var i=0;i< document.login.memberTypes.length;i++)
+	{
+		if(document.login.memberTypes[i].checked)
+		{
+		var memberTypes = document.login.memberTypes[i].value;
+		}
+	}
+
+	if(memberTypes == '1')
+	{
+	document.getElementById('maxpeople').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('maxpeople').style.display = 'none';
+	}
+}
+</script>
+<link href="/admin/css/jquery.datetimepicker.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/admin/js/jquery.datetimepicker.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+jQuery('#editbookingdatetime').datetimepicker();
+<!-- START IGNORE -->
+$(function() {
+    $(".datepicker").datetimepicker({inline:false,timepicker:false,format:'d/m/Y', value: new Date()});
+});
+<!-- END IGNORE -->
+</script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body onload="showHidePanel1();showHidePanel2();">
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types" class="active"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Add Membership</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-row">
+						<div class="formarea-row-left">Name <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="name" type="text" class="textbox-normal *{nameclass}*" size="20" value="*{name}*"></div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Expires <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="3" name="membershipLengthType" id="membershipLengthType3" *{membershipLengthTypechecked3}* onclick="showHidePanel1();"> <label for="membershipLengthType3">Never</label></li>
+									<li><input type="radio" value="4" name="membershipLengthType" id="membershipLengthType4" *{membershipLengthTypechecked4}* onclick="showHidePanel1();"> <label for="membershipLengthType4">On a Specific Date</label></li>
+									<li><input type="radio" value="0" name="membershipLengthType" id="membershipLengthType0" *{membershipLengthTypechecked0}* onclick="showHidePanel1();"> <label for="membershipLengthType0">After a Set Duration</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row" id="expirydate">
+						<div class="formarea-row-left">Expiry Date <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="specificExpirationDate" type="text" class="textbox-small *{specificExpirationDateclass}* datepicker" size="20" value="*{specificExpirationDate}*"></div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+					<div class="formarea-row" id="expiryduration">
+						<div class="formarea-row-left">Membership Duration <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="membershipLength" type="number" class="textbox-tiny *{membershipLengthclass}*" size="20" value="*{membershipLength}*"> <select name="durationunits" class="textbox-tiny *{durationunitsclass}*" size="1">
+<option value="days" *{durationunitsselected1}*>Days</option>
+<option value="months" *{durationunitsselected2}*>Months</option>
+<option value="years" *{durationunitsselected3}*>Years</option>
+</select></div>
+							<div class="formarea-row-right-error">*{error3}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Number of People <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="numberOfPeople" type="number" class="textbox-small *{numberOfPeopleclass}*" size="20" value="*{numberOfPeople}*"></div>
+							<div class="formarea-row-right-error">*{error4}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Member Types <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="1" name="memberTypes" id="memberTypes1" *{memberTypeschecked1}* onclick="showHidePanel2();"> <label for="memberTypes1">Mixed</label></li>
+									<li><input type="radio" value="2" name="memberTypes" id="memberTypes2" *{memberTypeschecked2}* onclick="showHidePanel2();"> <label for="memberTypes2">Adults Only</label></li>
+									<li><input type="radio" value="3" name="memberTypes" id="memberTypes3" *{memberTypeschecked3}* onclick="showHidePanel2();"> <label for="memberTypes3">Children Only</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="maxpeople">
+						<div class="formarea-row">
+							<div class="formarea-row-left">Maximum Adults <span class="required">*</span></div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="maximumAdults" type="number" class="textbox-small *{maximumAdultsclass}*" size="20" value="*{maximumAdults}*"></div>
+								<div class="formarea-row-right-error">*{error5}*</div>
+							</div>
+						</div>
+						<div class="formarea-row">
+							<div class="formarea-row-left">Maximum Children <span class="required">*</span></div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="maximumChildren" type="number" class="textbox-small *{maximumChildrenclass}*" size="20" value="*{maximumChildren}*"></div>
+								<div class="formarea-row-right-error">*{error6}*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save &amp; Continue &gt;" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

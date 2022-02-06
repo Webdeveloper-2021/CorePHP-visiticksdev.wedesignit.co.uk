@@ -1,0 +1,181 @@
+	<div class="urow tabs-empty halfed">
+		<form name="checkout" id="order-checkout" action="#" method="post">
+<!-- START BLOCK : LOGINSUGGESTION -->
+		<div class="urow logintext">Already a member? <a href="#login_3" title="Login" class="changepage">Login now</a> to retrieve your details.</div>
+<!-- END BLOCK : LOGINSUGGESTION -->
+		<div class="urow uinlineerror uhide uspaced-small" id="formerror">Please correct the errors highlighted below:</div>
+		<div class="urow">
+			<div class="content-half">
+				<div class="urow">
+					<h2 class="sitefont">Your Billing Details</h2>
+				</div>
+				<!-- START BLOCK : USERTYPE -->
+				<div class="urow form-row">
+					<ul>
+						<li><input type="radio" value="INDIVIDUAL" name="usertype" id="INDIVIDUAL" onclick="showHidePanel7();" checked="checked" tabindex="1"><label for="INDIVIDUAL">I am an individual</label></li>
+						<li><input type="radio" value="COMPANY" name="usertype" id="COMPANY" onclick="showHidePanel7();"><label for="COMPANY" tabindex="1">I represent a company</label></li>
+					</ul>
+				</div>
+				<!-- END BLOCK : USERTYPE -->
+				<div class="urow form-row *{showcompany}*" id="showcompany">
+					<div class="form-row-label">Company Name<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="company" id="companyname" type="text" size="20" value="*{company}*" tabindex="2" class="textbox large normal"></div>
+				</div>
+                <!-- START BLOCK : SHOWTITLE -->
+                <div class="urow form-row">
+                    <div class="form-row-label">Title<span class="form-required requiredfield *{showrequired}*">*</span></div>
+                    <div class="form-row-field"><input name="title" id="title" type="text" size="20" value="*{title}*" tabindex="3" class="textbox small small-left normal"></div>
+                </div>
+                <!-- END BLOCK : SHOWTITLE -->
+				<div class="urow form-row">
+					<div class="form-row-label">Name<span class="form-required requiredfield *{showrequired}*">*</span></div>
+					<div class="form-row-field">
+						<input name="firstname" id="firstname" type="text" size="20" value="*{firstname}*" tabindex="4" class="textbox small small-left normal">
+						<input name="lastname" id="lastname" type="text" size="20" value="*{lastname}*" tabindex="5" class="textbox small normal">
+					</div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Telephone<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="phone" id="phone" type="tel" size="20" value="*{phone}*" tabindex="6" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Email<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="email" id="email" type="email" size="20" value="*{email}*" tabindex="7" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row address">
+					<div class="form-row-label">Find Address</div>
+                    <div class="form-row-field postcode-lookup">
+                        <div class="postcode-lookup-left">
+                            <div id="postcode" tabindex="8"></div>
+                        </div>
+                        <div class="postcode-lookup-right">
+                            <div class="postcode-lookup-button normal" id="postcode-lookup-button" tabindex="9"><i class="fas fa-search"></i></div>
+                        </div>
+                    </div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Address Line 1<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="lookup_first_line" id="lookup_first_line" type="text" size="20" value="*{addressline1}*" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Address Line 2</div>
+					<div class="form-row-field"><input name="lookup_second_line" id="lookup_second_line" type="text" size="20" value="*{addressline2}*" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Town/City<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="lookup_post_town" id="lookup_post_town" type="text" size="20" value="*{addressline3}*" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Postcode<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="lookup_postcode" id="lookup_postcode" type="text" size="20" value="*{postcode}*" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Country<span class="form-required">*</span></div>
+					<div class="form-row-field">
+						<select name="country" id="country" class="textbox large normal" required="required">
+							<option value=""></option>
+							<!-- START BLOCK : COUNTRY -->
+							<option value="*{countrykey}*" *{selected}*>*{countryname}*</option>
+							<!-- END BLOCK : COUNTRY -->
+						</select>
+					</div>
+				</div>
+				<!-- START BLOCK : SHOWACCOUNTOPTIONS -->
+				<!-- START BLOCK : CREATEACCOUNT -->
+				<div class="urow" style="margin-top: 20px">
+					<h2 class="sitefont">Create Account</h2>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Password<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="password" id="password" type="password" size="20" value="*{password}*" tabindex="10" class="textbox large normal"></div>
+				</div>
+				<div class="urow form-row">
+					<div class="form-row-label">Repeat Password<span class="form-required">*</span></div>
+					<div class="form-row-field"><input name="passwordrepeat" id="passwordrepeat" type="password" size="20" value="*{passwordrepeat}*" tabindex="11" class="textbox large normal"></div>
+				</div>
+				<input type="hidden" name="accountoption" value="CREATEACCOUNT">
+				<!-- END BLOCK : CREATEACCOUNT -->
+				<!-- START BLOCK : GUESTCHECKOUT -->
+				<div class="urow form-row umt1">
+					<ul>
+						<li><input type="radio" value="CREATEACCOUNT" name="accountoption" id="CREATEACCOUNT" onclick="showHidePanel1();" checked="checked" tabindex="12"> <label for="CREATEACCOUNT">Create Account</label></li>
+						<li><input type="radio" value="GUESTCHECKOUT" name="accountoption" id="GUESTCHECKOUT" onclick="showHidePanel1();" tabindex="13"> <label for="GUESTCHECKOUT">Checkout as a Guest</label></li>
+					</ul>
+				</div>
+				<div id="showpassword">
+					<div class="urow form-row">
+						<div class="form-row-label">Password<span class="form-required">*</span></div>
+						<div class="form-row-field"><input name="password" id="password" type="password" size="20" value="*{password}*" tabindex="14" class="textbox large normal"></div>
+					</div>
+					<div class="urow form-row">
+						<div class="form-row-label">Repeat Password<span class="form-required">*</span></div>
+						<div class="form-row-field"><input name="passwordrepeat" id="passwordrepeat" type="password" size="20" value="*{passwordrepeat}*" tabindex="15" class="textbox large normal"></div>
+					</div>
+				</div>
+
+				<script type="text/javascript">showHidePanel1();showHidePanel2();</script>
+				<!-- END BLOCK : GUESTCHECKOUT -->
+				<!-- END BLOCK : SHOWACCOUNTOPTIONS -->
+			</div>
+			<div class="content-half">
+				<!-- START BLOCK : PAYMENTS -->
+				<div class="urow">
+					<h2 class="sitefont">Payment Type</h2>
+				</div>
+				<div class="urow form-row">
+					<ul>
+						<li><input type="radio" value="1" name="paymentoption" id="CREDITCARD" onclick="showHidePanel2();" checked="checked" tabindex="16"> <label for="CREDITCARD">Credit/Debit Card</label></li>
+						<li><input type="radio" value="2" name="paymentoption" id="APPLE" onclick="showHidePanel2();"> <label for="APPLE" tabindex="17">Apple Pay</label></li>
+						<li><input type="radio" value="3" name="paymentoption" id="PAYPAL" onclick="showHidePanel2();"> <label for="PAYPAL" tabindex="18">PayPal</label></li>
+					</ul>
+				</div>
+				<div id="showcard">
+					<div class="urow form-row">
+						<div class="form-row-label">Card Number<span class="form-required">*</span></div>
+						<div class="form-row-field"><input name="cardnumber" id="cardnumber" type="number" size="16" minlength="13" maxlength="16" value="*{cardnumber}*" tabindex="19" class="textbox large normal noarrows"><span class="fas fa-credit-card textbox-icon"></span></div>
+					</div>
+					<div class="urow form-row">
+						<div class="form-row-label">Expiry Date<span class="form-required">*</span></div>
+						<div class="form-row-field"><input name="expirymonth" id="expirymonth" type="number" size="2" value="*{expirymonth}*" min="1" max="12" tabindex="20" class="textbox small small-left normal" placeholder="MM"><input name="expiryyear" id="expiryyear" type="number" size="4" min="*{currentyear}*" value="*{expiryyear}*" tabindex="12" class="textbox small normal" placeholder="YYYY"></div>
+					</div>
+					<div class="urow form-row">
+						<div class="form-row-label">Name on Card<span class="form-required">*</span></div>
+						<div class="form-row-field"><input name="cardname" id="cardname" type="text" size="20" value="*{cardname}*" tabindex="21" class="textbox large normal"></div>
+					</div>
+					<div class="urow form-row">
+						<div class="form-row-label">CVV Code<span class="form-required">*</span></div>
+						<div class="form-row-field"><input name="cardcvv" id="cardcvv" type="number" size="20" value="*{cardcvv}*" tabindex="22" class="textbox small small-left normal"></div>
+					</div>
+				</div>
+				<!-- END BLOCK : PAYMENTS -->
+				<!-- START BLOCK : SHOWMARKETING -->
+				<div class="urow form-row marketing"><input name="marketing" id="marketing" type="checkbox" value="YES" tabindex="23"><label for="marketing">*{SETTING_MARKETINGTEXT}*</label></div>
+				<!-- END BLOCK : SHOWMARKETING -->
+				<div class="urow cart-next"><a href="#checkout-summary" title="Continue to Summary" class="sitebutton sitefont changepage summary" onclick="loader(this);" tabindex="24">Continue to Summary &gt;</a></div>
+			</div>
+		</div>
+		</form>
+	</div>
+    <script>
+        IdealPostcodes.PostcodeLookup.setup({
+            apiKey: '*{INSTALL_POSTCODELOOKUPAPIKEY}*',
+            context: '#postcode',
+            outputFields: {
+                line_1: '#lookup_first_line',
+                line_2: '#lookup_second_line',
+                line_3: '#lookup_third_line',
+                post_town: '#lookup_post_town',
+                postcode: '#lookup_postcode',
+                country: '#country',
+				organisation_name: '#companyname'
+            },
+            onAddressPopulated: function()
+            {
+                FieldStatus('.postcode-lookup-input','');
+                FieldStatus('#postcode-lookup-button','');
+				$('.idpc-select-container').hide();
+            },
+            button: '#postcode-lookup-button',
+            inputClass: 'postcode-lookup-input normal'
+        });
+    </script>

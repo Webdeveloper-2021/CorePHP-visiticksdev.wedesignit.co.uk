@@ -1,0 +1,158 @@
+<script type="text/javascript">
+<!-- START IGNORE -->
+$(function() {
+	var availableDates = *{dates}*,
+		datePickerOptions = {
+			inline:true,
+			timepicker:false,
+			format:'d/m/Y',
+			scrollMonth : false,
+			scrollInput : false,
+			onSelectDate: function(dateText, inst) {
+				let date = new Date(dateText),
+						dateAsString = date.toDateString(),
+						year = date.getFullYear(),
+						month = date.getMonth(),
+						day = date.getDate();
+
+				month = month < 10 ? '0' + (month + 1) : month + 1;
+				day_leading = day < 10 ? '0' + day : day;
+
+				const nth = function(d) {
+					if (d > 3 && d < 21) return 'th';
+					switch (d % 10) {
+						case 1:  return "st";
+						case 2:  return "nd";
+						case 3:  return "rd";
+						default: return "th";
+					}
+				};
+				const monthText = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()];
+
+				dateAsString = day + nth(day) + ' ' + monthText + ' ' + year;
+
+				$('.selected-day').text(dateAsString);
+				$('.show-events-btn').attr('href', '#calendar_' + year + month + day_leading).removeClass('uhide');
+			},
+			defaultDate: '*{day}*',
+			startDate: new Date(),
+			minDate: 0,
+			yearStart: 2021,
+			yearEnd: *{maxdate}*,
+			beforeShowDay: available,
+			onChangeMonth: getAvailable,
+			todayButton: false
+		};
+
+	function getAvailable(dateText, inst) {
+		let date = new Date(dateText),
+				year = date.getFullYear(),
+				month = date.getMonth();
+
+		let dateNow = new Date(),
+			monthNow = dateNow.getMonth();
+
+		if (month < monthNow) {
+			return false;
+		}
+
+		$.ajax({
+			url: "/get_available_dates.php",
+			data: {
+				year: year,
+				month: month + 1
+			},
+			dataType: "json",
+
+			success: function(data)
+			{
+				if(data["completed"])
+				{
+					availableDates = JSON.parse(data['dates']);
+					$("#bookingdate").datetimepicker(datePickerOptions);
+				}
+				else
+				{
+					$('#formerror').text(data['error']).removeClass('uhide');
+				}
+			}
+		});
+	}
+
+	function available(date) {
+		let m = date.getMonth()+1;
+		let month = m < 10 ? '0' + m : m;
+		let d =  date.getDate();
+		let day = d < 10 ? '0' + d : d;
+		let ymd =  date.getFullYear() + '' + month + '' + day;
+
+		if ($.inArray(ymd, availableDates) != -1) {
+			return [true,"","Available"];
+		} else {
+			return [false,"","unAvailable"];
+		}
+	}
+
+    $("#bookingdate").datetimepicker(datePickerOptions);
+});
+<!-- END IGNORE -->
+</script>
+
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last active">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom scrollbox">
+		<div class="urow">
+			<div class="calendar-box">
+				<div class="urow ucentered">
+					<h2 class="sitefont">When Would You Like to Attend?</h2>
+				</div>
+				<div class="urow">
+					<div class="calendar-box-left">
+						<div class="calendar-container">
+							<div id="bookingdate"></div>
+						</div>
+					</div>
+					<div class="calendar-box-right">
+						<div class="urow calendar-box-right-top"><span class="usemibold">Selected Day:</span>&nbsp;<span class="selected-day">*{day}*</span></div>
+						<div class="urow"><a href="#calendar_*{from}*" title="Show Available Events" class="sitebutton sitefont show-events-btn *{showeventsbtnclass}*" onclick="loader(this);">Show Available Events &gt;</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<!-- START BLOCK : EVENTSFOUND -->
+		<div class="urow ucentered" id="eventsfound">
+			<h2 class="sitefont">Events Available On Your Selected Date:</h2>
+		</div>
+<!-- END BLOCK : EVENTSFOUND -->
+		<div class="urow category-area">
+			<div class="category-area-container">
+<!-- START BLOCK : EVENT -->
+				<a href="*{url}*" title="*{name}*" class="changepage" onclick="loader(this);"><div class="category-box *{oddeven}*">
+					<div class="category-box-left"><img src="*{picture}*" alt="*{name}*" class="uimagerh"></div>
+					<div class="category-box-right">
+						<div class="urow category-box-right-top-event">
+							<div class="category-box-right-title sitefont urow ucentered">*{name}*</div>
+							<div class="category-box-right-text urow ucentered">*{description}*</div>
+							<div class="category-box-right-price urow ucentered">From <span class="usemibold">&pound;*{minPrice}*</span></div>
+						</div>
+						<div class="category-box-right-button urow ucentered"><div class="sitebutton sitefont">Browse Tickets</div></div>
+					</div>
+				</div></a>
+<!-- END BLOCK : EVENT -->
+			</div>
+<!-- START BLOCK : NOEVENTS -->
+			<div>There are no events on this date.</div>
+<!-- END BLOCK : NOEVENTS -->
+		</div>
+	</div>

@@ -1,0 +1,76 @@
+<!-- START BLOCK : ADDONMEMBER -->
+<div class="member additional">
+	<div class="urow form-row form-title">
+		<div class="form-title-half form-title-half-header">Member Details</div>
+		<div class="form-title-half form-title-half-link"><a href="#" title="Remove" class="remove-member" data-membership-id="*{id}*_*{iteration}*"><i class="fas fa-minus-circle"></i>Remove Member</a></div>
+	</div>
+	<!-- START BLOCK : ADDITIONALNAME -->
+	<div class="urow form-row *{namerequired}*">
+		<!-- START BLOCK : ADDITIONALTITLE -->
+		<div class="urow form-row">
+			<div class="form-row-label">Title<span class="form-required requiredfield">*</span></div>
+			<div class="form-row-field"><input name="memberships[*{iteration}*][*{id}*][members][*{number}*][title]" id="title_*{id}*_*{iteration}*_*{number}*" type="text" size="20" value="*{title}*" tabindex="*{id}**{iteration}*17" class="textbox small small-left normal"></div>
+		</div>
+		<!-- END BLOCK : ADDITIONALTITLE -->
+		<div class="form-row-label">Name<span class="form-required *{namerequired}*">*</span></div>
+		<div class="form-row-field">
+			<input name="memberships[*{iteration}*][*{id}*][members][*{number}*][firstName]" id="firstname_*{id}*_*{iteration}*_*{number}*" type="text" size="20" value="*{firstname}*" tabindex="*{id}**{iteration}*17" class="textbox small small-left normal">
+			<input name="memberships[*{iteration}*][*{id}*][members][*{number}*][lastName]" id="lastname_*{id}*_*{iteration}*_*{number}*" type="text" size="20" value="*{lastname}*" tabindex="*{id}**{iteration}*18" class="textbox small normal">
+		</div>
+	</div>
+	<!-- END BLOCK : ADDITIONALNAME -->
+	<!-- START BLOCK : ADDITIONALCHILDSELECTION -->
+	<div class="urow form-row"><input name="memberships[*{iteration}*][*{id}*][members][*{number}*][isChild]" id="ischild_*{id}*_*{iteration}*_*{number}*" class="is-child" type="checkbox" value="1" tabindex="*{id}**{iteration}*19" *{ischildchecked}*><label for="ischild_*{id}*_*{iteration}*_*{number}*">This member is a child</label></div>
+	<!-- END BLOCK : ADDITIONALCHILDSELECTION -->
+
+	<!-- START BLOCK : ADDITIONALDOB -->
+	<div class="urow form-row *{dobrequired}*">
+		<div class="form-row-label">Date of Birth<span class="form-required *{dobrequired}*">*</span></div>
+		<div class="form-row-field">
+			<select name="memberships[*{iteration}*][*{id}*][members][*{number}*][dob_dd]" id="dob_dd_*{id}*_*{iteration}*_*{number}*" tabindex="*{id}**{iteration}*20" class="textbox normal" style="margin-right: 10px;">
+				<option value="">DD</option>
+				<!-- START BLOCK : DAY -->
+				<option value="*{day}*" *{selectedday}*>*{day}*</option>
+				<!-- END BLOCK : DAY -->
+			</select>
+			<select name="memberships[*{iteration}*][*{id}*][members][*{number}*][dob_mm]" id="dob_mm_*{id}*_*{iteration}*_*{number}*" tabindex="*{id}**{iteration}*21" class="textbox normal" style="margin-right: 10px;">
+				<option value="">MM</option>
+				<!-- START BLOCK : MONTH -->
+				<option value="*{month}*" *{selectedmonth}*>*{month}*</option>
+				<!-- END BLOCK : MONTH -->
+			</select>
+			<select name="memberships[*{iteration}*][*{id}*][members][*{number}*][dob_yyyy]" id="dob_yyyy_*{id}*_*{iteration}*_*{number}*" tabindex="*{id}**{iteration}*22" class="textbox normal" required="required">
+				<option value="">YYYY</option>
+				<!-- START BLOCK : ADDITIONALYEAR -->
+				<option value="*{year}*" *{selectedyear}*>*{year}*</option>
+				<!-- END BLOCK : ADDITIONALYEAR -->
+			</select>
+		</div>
+	</div>
+	<!-- END BLOCK : ADDITIONALDOB -->
+	<!-- START BLOCK : ADDITIONALPHONE -->
+	<div class="urow form-row *{phonerequired}*">
+		<div class="form-row-label">Telephone<span class="form-required *{phonerequired}*">*</span></div>
+		<div class="form-row-field">
+			<input name="memberships[*{iteration}*][*{id}*][members][*{number}*][email]" id="email_*{id}*_*{iteration}*_*{number}*" type="text" size="20" value="*{phone}*" tabindex="*{id}**{iteration}*23" class="textbox large small-left normal">
+		</div>
+	</div>
+	<!-- END BLOCK : ADDITIONALPHONE -->
+	<!-- START BLOCK : ADDITIONALEMAIL -->
+	<div class="urow form-row *{emailrequired}*">
+		<div class="form-row-label">Email<span class="form-required *{emailrequired}*">*</span></div>
+		<div class="form-row-field">
+			<input name="memberships[*{iteration}*][*{id}*][members][*{number}*][email]" id="email_*{id}*_*{iteration}*_*{number}*" type="text" size="20" value="*{email}*" tabindex="*{id}**{iteration}*24" class="textbox large small-left normal">
+		</div>
+	</div>
+	<!-- END BLOCK : ADDITIONALEMAIL -->
+
+	<!-- START BLOCK : ADDITIONALMARKETING -->
+	<div class="urow form-row *{marketingrequired}*"><input name="memberships[*{iteration}*][*{id}*][members][*{number}*][marketing]" id="marketing_*{id}*_*{iteration}*_*{number}*" type="checkbox" value="YES" tabindex="*{id}**{iteration}*25"><label for="marketing_*{id}*_*{iteration}*_*{number}*">*{SETTING_MARKETINGTEXT}*</label></div>
+	<!-- END BLOCK : ADDITIONALMARKETING -->
+
+	<!-- START BLOCK : ADDITIONALCHILD -->
+	<input type="hidden" name="memberships[*{iteration}*][*{id}*][members][*{number}*][isChild]" value="1">
+	<!-- END BLOCK : ADDITIONALCHILD -->
+</div>
+<!-- END BLOCK : ADDONMEMBER -->

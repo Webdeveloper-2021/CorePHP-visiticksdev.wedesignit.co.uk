@@ -1,0 +1,61 @@
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last active">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom" id="content-buymemberships">
+		<form action="" id="form-buymemberships">
+<!-- START BLOCK : DONATIONPRICETOGGLE -->
+			<div class="product-toggle urow">
+				<div class="product-toggle-right">With Donation</div>
+				<div class="product-toggle-middle"><label class="switch"><input type="checkbox" *{checked}* id="donations_toggle_memberships"><span class="slider round"></span></label></div>
+				<div class="product-toggle-left">Without Donation</div>
+				<div class="product-toggle-pre">Show Prices:</div>
+			</div>
+<!-- END BLOCK : DONATIONPRICETOGGLE -->
+		<div class="urow">
+			<h1 class="sitefont">*{title}*</h1>
+			<!-- START BLOCK : NOTENOUGHMEMBERSHIPSMESSAGE -->
+			<p class="usubtitle">You have insufficient *{SETTING_PASSTITLE_PLURAL}* in your account for the number of people you wish to attend. You can add the required number of additional memberships below:</p>
+			<!-- END BLOCK : NOTENOUGHMEMBERSHIPSMESSAGE -->
+			<!-- START BLOCK : MEMBERSHIPSMESSAGE -->
+			<p class="usubtitle">You can add extra *{SETTING_PASSTITLE_PLURAL}* to your account below:</p>
+			<!-- END BLOCK : MEMBERSHIPSMESSAGE -->
+		</div>
+		<div class="urow">
+<!-- START BLOCK : MEMBERSHIP -->
+			<div class="product-row catalog urow item product-row-left" data-id="*{id}*" data-price="*{price}*" data-donation-price="*{donationprice}*" data-nodonation-price="*{nodonationprice}*" data-quantity="0" data-maxquantity="*{maxquantity}*" data-minquantity="*{minquantity}*">
+				<div class="product-row-picturetitle">
+					<div class="product-row-title-top urow">*{name}*</div>
+					<div class="product-row-title-bottom urow">*{description}*</div>
+				</div>
+				<div class="product-price-qty">
+					<div class="product-row-price">&pound;<span>*{price}*</span></div>
+					<div class="product-row-qty toppadding">
+						<div class="product-row-qty adjust less"><a href="#" title="Remove"><i class="fas fa-minus-circle"></i></a></div>
+						<div class="product-row-qty adjust amount"><input name="qty[*{id}*]" id="qty_*{id}*" type="number" size="2" min="0" max="99" value="0" class="textbox cart noarrows"></div>
+						<div class="product-row-qty adjust more"><a href="#" title="Add"><i class="fas fa-plus-circle"></i></a></div>
+					</div>
+				</div>
+			</div>
+<!-- END BLOCK : MEMBERSHIP -->
+			<div class="total-row urow">
+				<div class="product-row-picturetitle">
+					<div class="product-row-title-top urow" style="margin-left:20px;">Total</div>
+				</div>
+				<div class="product-row-price">&pound;<span>0.00</span></div>
+				<div class="product-row-qty"><a href="#" title="Select Date" class="sitebutton sitefont changepage check-buymemberships" onclick="loader(this);">Select Date ></a></div>
+			</div>
+			<div class="urow uhide uinlineerror uspaced-small ucentered" id="formerror">Something went wrong.</div>
+		</div>
+		<input type="hidden" name="eventid" value="*{id}*">
+		<input type="hidden" name="people" value="*{people}*">
+		</form>
+	</div>

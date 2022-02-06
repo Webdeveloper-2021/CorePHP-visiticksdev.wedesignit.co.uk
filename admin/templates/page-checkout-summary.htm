@@ -1,0 +1,87 @@
+	<div class="urow tabs-empty halfed">
+		<form name="checkout" id="checkout-summary" action="#" method="post">
+		<div class="urow">
+			<div class="content-half">
+				<div class="urow form-row form-title">
+					<h2 class="sitefont">Your Order Summary</h2>
+				</div>
+				<!-- START BLOCK : ITEM -->
+				<!-- START BLOCK : ITEMPRODUCT -->
+				<div class="urow summary-cart-row-b">
+					<div class="summary-cart-row-title">
+						<div class="product-row-title-top urow">*{name}*</div>
+						<div class="product-row-title-bottom urow">*{description}*</div>
+						<!-- START BLOCK : MEMBERSHIPNAMES -->
+						*{names}*
+						<!-- END BLOCK : MEMBERSHIPNAMES -->
+					</div>
+					<div class="summary-cart-row-price">&pound;<span>*{price}*</span></div>
+				</div>
+				<!-- END BLOCK : ITEMPRODUCT -->
+				<!-- START BLOCK : ITEMEVENT -->
+				<div class="urow summary-cart-row-b">
+					<div class="summary-cart-row-title">
+						<div class="product-row-title-top urow">*{name}*</div>
+						<div class="product-row-title-bottom urow">*{people}* Tickets.</div>
+						<div class="product-row-title-bottom urow">*{date}* *{startTime}* *{endTime}*</div>
+					</div>
+					<div class="summary-cart-row-price">&pound;*{price}*</div>
+				</div>
+				<!-- START BLOCK : ITEMEVENT -->
+				<!-- END BLOCK : ITEM -->
+<!-- START BLOCK : GIFTAID -->
+				<div class="urow">
+					<div class="giftaid">
+						<div class="urow giftaid-top">*{SETTING_GIFTAID_TITLE}*</div>
+						<div class="urow giftaid-middle">
+							<div class="giftaid-middle-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris in viverra massa. Suspendisse potenti. Quisque sodales volutpat interdum.</div>
+							<div class="giftaid-middle-right"><img src="/img/giftaid.png" alt="Gift Aid" class="uimagerh"/></div>
+						</div>
+						<div class="urow giftaid-bottom">
+							<input name="giftaid" id="giftaid-yes" type="radio" value="YES" tabindex="1"> <label for="giftaid-yes" style="margin-right:10px;">*{SETTING_GIFTAID_YES}*</label>
+							<input name="giftaid" id="giftaid-no" type="radio" value="NO" tabindex="1"> <label for="giftaid-no">*{SETTING_GIFTAID_NO}*</label>
+						</div>
+					</div>
+				</div>
+<!-- END BLOCK : GIFTAID -->
+			</div>
+			<div class="content-half">
+				<div class="urow form-row form-title">
+					<div class="form-title-half">
+						<h2 class="sitefont">Your Order Details</h2>
+					</div>
+					<div class="form-title-half form-title-half-link"><a href="#checkout" title="Edit Details" class="changepage"><i class="fas fa-edit"></i>Edit Details</a></div>
+				</div>
+				<div class="urow form-row form-title">
+					<div class="form-title-half form-title-half-header">Billing Address</div>
+				</div>
+				<div class="urow form-row">*{title}* *{firstname}* *{lastname}*<br/>*{addressline1}*<br/>*{addressline2}*<br/>*{addressline3}*<br/>*{postcode}*<br/>*{country}*</div>
+				<div class="urow form-row"><span class="usemibold">Email:</span> *{email}*<br/><span class="usemibold">Tel:</span> *{phone}*</div>
+<!-- START BLOCK : PAYMENTDETAILS -->
+				<div class="urow form-row form-title">
+					<div class="form-title-half form-title-half-header">Payment Details</div>
+				</div>
+				<div class="urow form-row summary-cart-payment">
+					<div class="summary-cart-payment-left"><i class="fas fa-credit-card"></i></div>
+					<div class="summary-cart-payment-right">Card (Ending *{cardnumber}*)<br/>Exp: *{expiry}*<br/>CVV: ***</div>
+				</div>
+<!-- END BLOCK : PAYMENTDETAILS -->
+				<!-- START BLOCK : TANDC -->
+				<input type="checkbox" name="tandc" value="YES"> *{SETTING_TANDCTEXT}*
+				<!-- END BLOCK : TANDC -->
+			</div>
+		</div>
+		<div class="urow summary-cart-total">
+			<div class="content-half">
+				<div class="urow">
+					<div class="summary-cart-row-title">
+						<div class="product-row-title-top urow">Total to Pay</div>
+					</div>
+					<div class="summary-cart-row-price">&pound;*{total}*</div>
+				</div>
+			</div>
+			<div class="content-half rightbutton"><a href="#confirmation" title="Pay Now" class="sitebutton sitefont changepage pay-now" onclick="loader(this);">*{buttontext}* &gt;</a></div>
+			<div class="urow uinlineerror uhide" id="formerror" style="margin-top:10px;"></div>
+		</div>
+		</form>
+	</div>

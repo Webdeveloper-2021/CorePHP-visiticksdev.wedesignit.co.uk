@@ -1,0 +1,1 @@
+c:\xampp\htdocs\0.921\js\jquery.spectrum.js

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Setup: Branding | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+function showHidePanel1()
+{
+	for(var i=0;i< document.login.logoimagetype.length;i++)
+	{
+		if(document.login.logoimagetype[i].checked)
+		{
+		var logoimagetype = document.login.logoimagetype[i].value;
+		}
+	}
+
+	if(logoimagetype == 'NEW')
+	{
+	document.getElementById('logoreplaceimage').style.display = 'inline';
+	document.getElementById('logosameimage').style.display = 'none';
+	}
+	else
+	{
+	document.getElementById('logoreplaceimage').style.display = 'none';
+	document.getElementById('logosameimage').style.display = 'inline';
+	}
+}
+
+function showHidePanel2()
+{
+	for(var i=0;i< document.login.defaultimagetype.length;i++)
+	{
+		if(document.login.defaultimagetype[i].checked)
+		{
+		var defaultimagetype = document.login.defaultimagetype[i].value;
+		}
+	}
+
+	if(defaultimagetype == 'NEW')
+	{
+	document.getElementById('defaultreplaceimage').style.display = 'inline';
+	document.getElementById('defaultsameimage').style.display = 'none';
+	}
+	else
+	{
+	document.getElementById('defaultreplaceimage').style.display = 'none';
+	document.getElementById('defaultsameimage').style.display = 'inline';
+	}
+}
+
+function encodeLogoImageFileAsURL() {
+	const file = document.getElementById('LogoFileName').files[0];
+	const reader = new FileReader();
+
+	reader.addEventListener("load", function () {
+		document.getElementById('LogoFileData').value = reader.result.split(',')[1];
+	}, false);
+
+	if (file) {
+		reader.readAsDataURL(file);
+	} else {
+		document.getElementById('LogoFileData').value = '';
+	}
+}
+
+function encodeDefaultImageFileAsURL() {
+	const file = document.getElementById('DefaultImageFileName').files[0];
+	const reader = new FileReader();
+
+	reader.addEventListener("load", function () {
+		document.getElementById('DefaultImageFileData').value = reader.result.split(',')[1];
+	}, false);
+
+	if (file) {
+		reader.readAsDataURL(file);
+	} else {
+		document.getElementById('DefaultImageFileData').value = '';
+	}
+}
+</script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body onload="showHidePanel1();showHidePanel2();">
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding" class="active"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Setup: Branding</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+<!-- START BLOCK : SUCCESS -->
+			<div class="success">
+				<div class="success-inner">
+					<div class="message-inner"><strong>CONFIRMATION:</strong> *{success}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : SUCCESS -->
+			<div class="tabs">
+				<ul>
+					<li><a href="settings-branding-images.php" title="Logos &amp; Images" class="active">Logos &amp; Images</a></li>
+					<li><a href="settings-branding-colours.php" title="Colours">Colours</a></li>
+					<li><a href="settings-branding-fonts.php" title="Fonts">Fonts</a></li>
+				</ul>
+			</div>
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-row">
+						<div class="formarea-row-left">Logo <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your image will be displayed 125px high and up to a maximum of 400px wide (or incremente thereof) and should be a maximum of 2MB in size.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input" style="margin-bottom:20px;">
+								<ul class="options">
+									<li><input type="radio" value="EXISTING" name="logoimagetype" id="logoEXISTING" *{logoimagetypechecked1}* onclick="showHidePanel1();"> <label for="logoEXISTING">Keep Existing Image</label></li>
+									<li><input type="radio" value="NEW" name="logoimagetype" id="logoNEW" *{logoimagetypechecked2}* onclick="showHidePanel1();"> <label for="logoNEW">Replace Image</label></li>
+								</ul>
+							</div>
+							<div class="formarea-row-right-input editimage" id="logosameimage"><img src="*{logopicture}*" alt="Current Image"></div>
+							<div class="formarea-row-right-input" id="logoreplaceimage">
+								<input name="LogoFileName" type="file" id="LogoFileName" class="textbox-normal *{LogoFileNameclass}*" size="20" value="" onchange="encodeLogoImageFileAsURL()">
+								<input name="LogoFileData" type="hidden" id="LogoFileData" value="*{LogoFileData}*" >
+							</div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Default Catalog Image <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your image should be in the ratio of 300 pixels wide x 250 pixels high (or increments thereof) and a maximum of 2MB in size.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input" style="margin-bottom:20px;">
+								<ul class="options">
+									<li><input type="radio" value="EXISTING" name="defaultimagetype" id="defaultEXISTING" *{defaultimagetypechecked1}* onclick="showHidePanel2();"> <label for="defaultEXISTING">Keep Existing Image</label></li>
+									<li><input type="radio" value="NEW" name="defaultimagetype" id="defaultNEW" *{defaultimagetypechecked2}* onclick="showHidePanel2();"> <label for="defaultNEW">Replace Image</label></li>
+								</ul>
+							</div>
+							<div class="formarea-row-right-input editimage" id="defaultsameimage"><img src="*{defaultpicture}*" alt="Current Image" class="urounded"></div>
+							<div class="formarea-row-right-input" id="defaultreplaceimage">
+								<input name="DefaultImageFileName" type="file" id="DefaultImageFileName" class="textbox-normal *{DefaultImageFileNameclass}*" size="20" value="" onchange="encodeDefaultImageFileAsURL()">
+								<input name="DefaultImageFileData" type="hidden" id="DefaultImageFileData" value="*{DefaultImageFileData}*" >
+							</div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

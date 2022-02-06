@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Settings: Branding | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<link href="/admin/css/jquery.spectrum.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/admin/js/jquery.spectrum.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+</script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body>
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding" class="active"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Settings: Branding</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+<!-- START BLOCK : SUCCESS -->
+			<div class="success">
+				<div class="success-inner">
+					<div class="message-inner"><strong>CONFIRMATION:</strong> *{success}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : SUCCESS -->
+			<div class="tabs">
+				<ul>
+					<li><a href="settings-branding-images.php" title="Logos &amp; Images">Logos &amp; Images</a></li>
+					<li><a href="settings-branding-colours.php" title="Colours" class="active">Colours</a></li>
+					<li><a href="settings-branding-fonts.php" title="Fonts">Fonts</a></li>
+				</ul>
+			</div>
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-header topper">Main Colours</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Main Title Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="MainTitleColour" id="MainTitleColour" type="text" class="textbox-small *{MainTitleColourclass}* colourpicker" size="20" value="*{MainTitleColour}*"></div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Link Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="LinkColour" id="LinkColour" type="text" class="textbox-small *{LinkColourclass}* colourpicker" size="20" value="*{LinkColour}*"></div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Header Colours</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Header Background Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="HeaderBackgroundColour" type="text" class="textbox-small *{HeaderBackgroundColourclass}* colourpicker" size="20" value="*{HeaderBackgroundColour}*"></div>
+							<div class="formarea-row-right-error">*{error3}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Header Hover Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="HeaderHoverColour" type="text" class="textbox-small *{HeaderHoverColourclass}* colourpicker" size="20" value="*{HeaderHoverColour}*"></div>
+							<div class="formarea-row-right-error">*{error4}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Header Text Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="HeaderTextColour" type="text" class="textbox-small *{HeaderTextColourclass}* colourpicker" size="20" value="*{HeaderTextColour}*"></div>
+							<div class="formarea-row-right-error">*{error5}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Button Colours</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Button Background Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="ButtonBackgroundColour" type="text" class="textbox-small *{ButtonBackgroundColourclass}* colourpicker" size="20" value="*{ButtonBackgroundColour}*"></div>
+							<div class="formarea-row-right-error">*{error6}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Button Text Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="ButtonTextColour" type="text" class="textbox-small *{ButtonTextColourclass}* colourpicker" size="20" value="*{ButtonTextColour}*"></div>
+							<div class="formarea-row-right-error">*{error7}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Button Contrast Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="ButtonContrast" type="text" class="textbox-small *{ButtonContrastclass}* colourpicker" size="20" value="*{ButtonContrast}*"></div>
+							<div class="formarea-row-right-error">*{error8}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Calendar Colours</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Button Background Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="CalendarActiveColour" type="text" class="textbox-small *{CalendarActiveColourclass}* colourpicker" size="20" value="*{CalendarActiveColour}*"></div>
+							<div class="formarea-row-right-error">*{error9}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Button Text Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="CalendarHoverColour" type="text" class="textbox-small *{CalendarHoverColourclass}* colourpicker" size="20" value="*{CalendarHoverColour}*"></div>
+							<div class="formarea-row-right-error">*{error10}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Footer Colours</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Footer Text Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="FooterTextColour" type="text" class="textbox-small *{FooterTextColourclass}* colourpicker" size="20" value="*{FooterTextColour}*"></div>
+							<div class="formarea-row-right-error">*{error11}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Footer Background Colour</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="FooterBackgroundColour" type="text" class="textbox-small *{FooterBackgroundColourclass}* colourpicker" size="20" value="*{FooterBackgroundColour}*"></div>
+							<div class="formarea-row-right-error">*{error12}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+<script language="Javascript" type="text/Javascript">
+	$(".colourpicker").spectrum({preferredFormat: "hex", showInput: true});
+</script>
+</html>

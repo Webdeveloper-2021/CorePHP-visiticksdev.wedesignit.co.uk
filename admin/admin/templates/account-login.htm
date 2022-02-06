@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Login | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body>
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+
+		<div class="outer-middle-login">
+		<div class="outer-middle-login-inner">
+			<h1>Dashboard Login</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+<!-- START BLOCK : SUCCESS -->
+			<div class="success">
+				<div class="success-inner">
+					<div class="message-inner"><strong>CONFIRMATION:</strong> *{success}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : SUCCESS -->
+			<div class="formarea">
+			<form action="" method="post" name="login">
+				<div class="formarea-group">
+					<div class="formarea-row">
+						<div class="formarea-row-left">Username <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="email" type="text" class="textbox-normal *{emailclass}*" size="20" value="*{email}*"></div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Password <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="password" type="password" class="textbox-normal *{passwordclass}*" size="20" value=""></div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="submit" value="Login" class="button" /></div>
+			</form>
+			</div>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first active">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom" id="content-category">
+		<form id="category-products">
+<!-- START BLOCK : DONATIONPRICETOGGLE -->
+			<div class="product-toggle urow">
+				<div class="product-toggle-right">With Donation</div>
+				<div class="product-toggle-middle"><label class="switch"><input type="checkbox" *{checked}* id="donations_toggle"><span class="slider round"></span></label></div>
+				<div class="product-toggle-left">Without Donation</div>
+				<div class="product-toggle-pre">Show Prices:</div>
+			</div>
+<!-- END BLOCK : DONATIONPRICETOGGLE -->
+		<div class="urow">
+			<h1 class="sitefont">*{categorytitle}*</h1>
+		</div>
+<!-- START BLOCK : DESCRIPTION -->
+		<div class="urow" style="margin:-15px 0 15px 0;">
+			<p>*{categorydescription}*</p>
+		</div>
+<!-- END BLOCK : DESCRIPTION -->
+		<div class="urow">
+<!-- START BLOCK : ITEM -->
+<!-- START BLOCK : ITEMPRODUCT -->
+			<div class="product-row catalog item urow" data-id="*{id}*" data-price="*{price}*" data-donation-price="*{donationprice}*" data-nodonation-price="*{nodonationprice}*" data-quantity="0" data-maxquantity="*{maxquantity}*" data-minquantity="*{minquantity}*">
+				<div class="product-row-picture"><img src="*{picture}*" alt="*{name}*" data-featherlight="*{picture}*"></div>
+				<div class="product-row-left">
+					<div class="product-row-title">
+						<div class="product-row-title-top urow">*{name}*</div>
+						<div class="product-row-title-bottom urow">*{description}*</div>
+					</div>
+					<div class="product-price-qty">
+						<div class="product-row-price">&pound;<span>*{price}*</span></div>
+						<div class="product-row-qty toppadding">
+							<div class="product-row-qty adjust less"><a href="#" title="Remove"><i class="fas fa-minus-circle"></i></a></div>
+							<div class="product-row-qty adjust amount"><input name="qty[*{id}*]" id="qty_*{id}*" type="number" size="2" value="0" min="0" max="99" maxlength="2" class="textbox cart noarrows" required="required"></div>
+							<div class="product-row-qty adjust more"><a href="#" title="Add"><i class="fas fa-plus-circle"></i></a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+<!-- END BLOCK : ITEMPRODUCT -->
+<!-- START BLOCK : ITEMEVENT -->
+			<div class="product-row catalog urow">
+				<div class="product-row-picture"><img src="*{picture}*" alt="*{name}*" data-featherlight="*{picture}*"></div>
+				<div class="product-row-titlepriceqty">
+					<div class="product-row-title-top urow"><a href="#event_*{id}*" title="Book Tickets" class="changepage">*{name}*</a></div>
+					<div class="product-row-title-bottom urow">*{description}*</div>
+					<!-- START BLOCK : BOOKTICKETS -->
+					<div class="urow form-row form-addmore-b"><a href="#event_*{id}*" title="Book Tickets" class="changepage"><i class="fas fa-calendar-alt"></i>Book Tickets From &pound;*{minprice}*</a></div>
+					<!-- END BLOCK : BOOKTICKETS -->
+				</div>
+			</div>
+<!-- END BLOCK : ITEMEVENT -->
+<!-- END BLOCK : ITEM -->
+			<!-- START BLOCK : TOTAL -->
+			<div class="total-row urow" data-total="0">
+				<div class="product-row-picture mobilehide">&nbsp;</div>
+				<div class="product-row-title">
+					<div class="product-row-title-top urow">Total</div>
+				</div>
+				<div class="product-row-price">&pound;<span>0.00</span></div>
+                <div class="product-row-qty"><a href="#" title="Add to Cart" class="changepage add-to-cart" onclick="loader(this);"><div class="sitebutton sitefont"><i class="fas fa-plus"></i>Add to Cart</div></a></div>
+			</div>
+			<div class="urow uhide uinlineerror uspaced-small ucentered" id="formerror">Please select at least one item you wish to purchase.</div>
+			<!-- END BLOCK : TOTAL -->
+		</div>
+		</form>
+	</div>
+	<div id="addedoverlay" style="display: none">
+		<div class="modal">
+			<header>
+				<h1 class="sitefont">Added to Cart</h1>
+				<span class="close close-modal">&times;</span>
+			</header>
+			<div class="buttons">
+				<a href="#" class="continue sitefont close-modal">Continue Shopping</a>
+				<a href="#cart" class="sitebutton sitefont">Go to Cart</a>
+			</div>
+		</div>
+	</div>

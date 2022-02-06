@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Add Item | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php?v=58" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+function showHidePanel1()
+{
+	for(var i=0;i< document.login.itemType.length;i++)
+	{
+		if(document.login.itemType[i].checked)
+		{
+		var itemType = document.login.itemType[i].value;
+		}
+	}
+
+	if(itemType == '1')
+	{
+	document.getElementById('productstock').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('productstock').style.display = 'none';
+	}
+
+	if(itemType == '3')
+	{
+	document.getElementById('event').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('event').style.display = 'none';
+	}
+
+	if(itemType == '4')
+	{
+	document.getElementById('membership').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('membership').style.display = 'none';
+	}
+}
+function showHidePanel2()
+{
+	if(document.getElementById('sellOnline').checked)
+	{
+	document.getElementById('showonline').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('showonline').style.display = 'none';
+	}
+}
+function showHidePanel3()
+{
+	if(document.getElementById('sellAtPOS').checked)
+	{
+	document.getElementById('showpos').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('showpos').style.display = 'none';
+	}
+}
+function showHidePanel4()
+{
+	if(document.getElementById('membershipEventDiscountedItem').checked)
+	{
+	document.getElementById('discountable').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('discountable').style.display = 'none';
+	}
+}
+function showHidePanel5()
+{
+	if(document.getElementById('donationItem').checked === false)
+	{
+	document.getElementById('showdonations').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('showdonations').style.display = 'none';
+	}
+}
+function showHidePanel6()
+{
+	if(document.getElementById('availableDateRange').checked)
+	{
+	document.getElementById('availability').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('availability').style.display = 'none';
+	}
+}
+function encodeImageFileAsURL() {
+	const file = document.getElementById('imageFileName').files[0];
+	const reader = new FileReader();
+
+	reader.addEventListener("load", function () {
+		document.getElementById('imageFileData').value = reader.result.split(',')[1];
+	}, false);
+
+	if (file) {
+		reader.readAsDataURL(file);
+	} else {
+		document.getElementById('imageFileData').value = '';
+	}
+}
+</script>
+<link href="/admin/css/jquery.datetimepicker.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/admin/js/jquery.datetimepicker.js"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!-- START IGNORE -->
+$(function() {
+    $(".datepicker").datetimepicker({inline:false,timepicker:false,format:'d/m/Y'});
+});
+<!-- END IGNORE -->
+</script>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="/admin/js/tinymce/tinymce.min.js"></script>
+<script src="/admin/js/tinymce.options.js"></script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body onload="showHidePanel1();showHidePanel2();showHidePanel3();showHidePanel4();showHidePanel5();showHidePanel6();">
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item" class="active"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Add Item</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-header topper">Item Details</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Item Type <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="2" name="itemType" id="itemType2" *{itemTypechecked2}* onclick="showHidePanel1();"> <label for="itemType2">Open Ticket</label></li>
+									<li><input type="radio" value="4" name="itemType" id="itemType4" *{itemTypechecked4}* onclick="showHidePanel1();"> <label for="itemType4">Membership</label></li>
+									<li><input type="radio" value="3" name="itemType" id="itemType3" *{itemTypechecked3}* onclick="showHidePanel1();"> <label for="itemType3">Event</label></li>
+									<li><input type="radio" value="1" name="itemType" id="itemType1" *{itemTypechecked1}* onclick="showHidePanel1();"> <label for="itemType1">Product</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Name <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="name" type="text" class="textbox-normal *{nameclass}*" size="20" value="*{name}*"></div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Description <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Only the first 75 characters of the item description will be diplayed in some places.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><textarea rows="5" name="description" cols="20" class="textbox-normal *{descriptionclass}* tinymce-small">*{description}*</textarea></div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Image (Optional)
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your image should be in the ratio of 300 pixels wide x 250 pixels high (or increments thereof) and a maximum of 2MB in size.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<input name="imageFileName" type="file" id="imageFileName" class="textbox-normal *{imageFileNameclass}*" size="20" value="*{imageFileName}*" onchange="encodeImageFileAsURL()">
+								<input name="imageFileData" type="hidden" id="imageFileData" value="*{imageFileData}*" >
+							</div>
+							<div class="formarea-row-right-error">*{error3}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Categories <span class="required">*</span></div>
+						<div class="formarea-row-right">
+<!-- START BLOCK : CATEGORIES -->
+							<div class="formarea-row-right-scroll">
+<!-- START BLOCK : CATEGORY -->
+								<div class="formarea-row-right-scroll-input"><input name="categoryIds*{categoryid}*" id="categoryIds*{categoryid}*" type="checkbox" value="1" *{categoryselected}*> <label for="categoryIds*{categoryid}*">*{categorytitle}*</label></div>
+<!-- END BLOCK : CATEGORY -->
+							</div>
+<!-- END BLOCK : CATEGORIES -->
+<!-- START BLOCK : NOCATEGORIES -->
+							<div class="formarea-row-right-input">There are no categories to select</div>
+<!-- END BLOCK : NOCATEGORIES -->
+						</div>
+					</div>
+					<div class="formarea-row" id="membership">
+						<div class="formarea-row-left">Membership Type<span class="required">*</span></div>
+						<div class="formarea-row-right">
+<!-- START BLOCK : MEMBERSHIPS -->
+							<div class="formarea-row-right-input"><select name="membershipId" class="textbox-normal *{membershipIdclass}*" size="1">
+							<option value="">Please select</option>
+<!-- START BLOCK : MEMBERSHIP -->
+							<option value="*{membershipid}*" *{membershipselected}*>*{membershiptitle}*</option>
+<!-- END BLOCK : MEMBERSHIP -->
+							</select></div>
+
+<!-- END BLOCK : MEMBERSHIPS -->
+<!-- START BLOCK : NOMEMBERSHIPS -->
+							<div class="formarea-row-right-input">There are no memberships to select</div>
+<!-- END BLOCK : NOMEMBERSHIPS -->
+							<div class="formarea-row-right-error">*{error4}*</div>
+						</div>
+					</div>
+					<div id="event">
+						<div class="formarea-row">
+							<div class="formarea-row-left">Event <span class="required">*</span></div>
+							<div class="formarea-row-right">
+<!-- START BLOCK : EVENTS -->
+								<div class="formarea-row-right-input"><select name="eventId" class="textbox-normal *{eventIdclass}*" size="1">
+									<option value="">Please select</option>
+<!-- START BLOCK : EVENT -->
+									<option value="*{eventid}*" *{eventselected}*>*{eventtitle}*</option>
+<!-- END BLOCK : EVENT -->
+								</select></div>
+<!-- END BLOCK : EVENTS -->
+<!-- START BLOCK : NOEVENTS -->
+								<div class="formarea-row-right-input">There are no events to select</div>
+<!-- END BLOCK : NOEVENTS -->
+								<div class="formarea-row-right-error">*{error5}*</div>
+							</div>
+						</div>
+						<div class="formarea-row">
+							<div class="formarea-row-left">Membership Discountable Item?</div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="membershipEventDiscountedItem" id="membershipEventDiscountedItem" type="checkbox" value="1" *{membershipEventDiscountedItemchecked}* onclick="showHidePanel4();"></div>
+							</div>
+						</div>
+						<div class="formarea-row" id="discountable">
+							<div class="formarea-row-left">Discounting Memberships <span class="required">*</span></div>
+							<div class="formarea-row-right">
+<!-- START BLOCK : DISCOUNTINGMEMBERSHIPS -->
+								<div class="formarea-row-right-scroll">
+<!-- START BLOCK : DISCOUNTINGMEMBERSHIP -->
+									<div class="formarea-row-right-scroll-input"><input name="itemDiscountMemberships*{discountingmembershipid}*" id="itemDiscountMemberships*{discountingmembershipid}*" type="checkbox" value="1" *{discountingmembershipchecked}*> <label for="itemDiscountMemberships*{discountingmembershipid}*">*{discountingmembershiptitle}*</label></div>
+<!-- END BLOCK : DISCOUNTINGMEMBERSHIP -->
+								</div>
+<!-- END BLOCK : DISCOUNTINGMEMBERSHIPS -->
+<!-- START BLOCK : NODISCOUNTINGMEMBERSHIPS -->
+								<div class="formarea-row-right-input">There are no memberships to select</div>
+<!-- END BLOCK : NODISCOUNTINGMEMBERSHIPS -->
+								<div class="formarea-row-right-error">*{error6}*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Selling Options</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Sell Online?</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="sellOnline" id="sellOnline" type="checkbox" value="1" *{sellOnlinechecked}* onclick="showHidePanel2();"></div>
+						</div>
+					</div>
+					<div class="formarea-row" id="showonline">
+						<div class="formarea-row-left">Online Price <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="onlinePrice" type="number" step="any" class="textbox-small *{onlinePriceclass}*" size="20" value="*{onlinePrice}*"></div>
+							<div class="formarea-row-right-error">*{error7}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Sell at POS?</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="sellAtPOS" id="sellAtPOS" type="checkbox" value="1" *{sellAtPOSchecked}* onclick="showHidePanel3();"></div>
+						</div>
+					</div>
+					<div id="showpos">
+						<div class="formarea-row">
+							<div class="formarea-row-left">POS Code</div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="posCode" type="text" class="textbox-normal *{posCodeclass}*" size="20" value="*{posCode}*"></div>
+								<div class="formarea-row-right-error">*{error8}*</div>
+							</div>
+						</div>
+						<div class="formarea-row">
+							<div class="formarea-row-left">POS Price <span class="required">*</span></div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="POSPrice" type="number" step="any" class="textbox-small *{POSPriceclass}*" size="20" value="*{POSPrice}*"></div>
+								<div class="formarea-row-right-error">*{error9}*</div>
+							</div>
+						</div>
+						<div class="formarea-row">
+							<div class="formarea-row-left">POS Branches (Optional)</div>
+							<div class="formarea-row-right">
+<!-- START BLOCK : BRANCHES -->
+								<div class="formarea-row-right-scroll">
+<!-- START BLOCK : BRANCH -->
+									<div class="formarea-row-right-scroll-input"><input name="PointOfSaleBranchIds*{branchid}*" id="PointOfSaleBranchIds*{branchid}*" type="checkbox" value="1" *{branchselected}*> <label for="PointOfSaleBranchIds*{branchid}*">*{branchtitle}*</label></div>
+<!-- END BLOCK : BRANCH -->
+								</div>
+<!-- END BLOCK : BRANCHES -->
+<!-- START BLOCK : NOBRANCHES -->
+								<div class="formarea-row-right-input">There are no branches to select</div>
+<!-- END BLOCK : NOBRANCHES -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-row">
+						<div class="formarea-row-left">Tax Code <span class="required">*</span></div>
+						<div class="formarea-row-right">
+<!-- START BLOCK : TAXCODES -->
+							<div class="formarea-row-right-input"><select name="taxCodeId" class="textbox-normal *{taxCodeIdclass}*" size="1">
+							<option value="">Please select</option>
+<!-- START BLOCK : TAXCODE -->
+							<option value="*{taxcodeid}*" *{taxcodeselected}*>*{taxcodetitle}*</option>
+<!-- END BLOCK : TAXCODE -->
+							</select></div>
+<!-- END BLOCK : TAXCODES -->
+<!-- START BLOCK : NOTAXCODES -->
+							<div class="formarea-row-right-input">There are no tax codes to select</div>
+<!-- END BLOCK : NOTAXCODES -->
+							<div class="formarea-row-right-error">*{error10}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Donation Item?
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Check this box if 100% of the sale price is a donation.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="donationItem" id="donationItem" type="checkbox" value="1" *{donationItemchecked}* onclick="showHidePanel5();"></div>
+						</div>
+					</div>
+					<div class="formarea-row" id="showdonations">
+						<div class="formarea-row-left">Donation Rate (Optional)</div>
+						<div class="formarea-row-right">
+<!-- START BLOCK : DONATIONRATES -->
+							<div class="formarea-row-right-input"><select name="donationRateId" class="textbox-normal *{donationRateIdclass}*" size="1">
+								<option value="">Please select</option>
+<!-- START BLOCK : DONATIONRATE -->
+								<option value="*{donationrateid}*" *{donationrateselected}*>*{donationratetitle}*</option>
+<!-- END BLOCK : DONATIONRATE -->
+							</select></div>
+<!-- END BLOCK : DONATIONRATES -->
+<!-- START BLOCK : NODONATIONRATES -->
+							<div class="formarea-row-right-input">There are no donation rates to select</div>
+<!-- END BLOCK : NODONATIONRATES -->
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Minimum Sale Quantity <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="purchaseQuantityMinimum" type="number" class="textbox-small *{purchaseQuantityMinimumclass}*" size="20" value="*{purchaseQuantityMinimum}*"></div>
+							<div class="formarea-row-right-error">*{error11}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Maximum Sale Quantity <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="purchaseQuantityMaximum" type="number" class="textbox-small *{purchaseQuantityMaximumclass}*" size="20" value="*{purchaseQuantityMaximum}*"></div>
+							<div class="formarea-row-right-error">*{error12}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group" id="productstock">
+					<div class="formarea-header">Inventory Management</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Allow Negative Stock?</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="allowNegativeStock" id="allowNegativeStock" type="checkbox" value="1" *{allowNegativeStockchecked}*></div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Opening Stock Balance <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="openingStock" type="number" class="textbox-small *{openingStockclass}*" size="20" value="*{openingStock}*"></div>
+							<div class="formarea-row-right-error">*{error13}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Schedule Availability</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Limit Availability?</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="availableDateRange" id="availableDateRange" type="checkbox" value="1" *{availableDateRangechecked}* onclick="showHidePanel6();"></div>
+						</div>
+					</div>
+					<div id="availability">
+						<div class="formarea-row">
+							<div class="formarea-row-left">Start Date <span class="required">*</span></div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="availableFrom" type="text" class="textbox-small *{availableFromclass}* datepicker" size="20" value="*{availableFrom}*"></div>
+								<div class="formarea-row-right-error">*{error14}*</div>
+							</div>
+						</div>
+						<div class="formarea-row">
+							<div class="formarea-row-left">End Date <span class="required">*</span></div>
+							<div class="formarea-row-right">
+								<div class="formarea-row-right-input"><input name="availableTo" type="text" class="textbox-small *{availableToclass}* datepicker" size="20" value="*{availableTo}*"></div>
+								<div class="formarea-row-right-error">*{error15}*</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save &amp; Edit" class="button" /> <input type="submit" name="saveexit" value="Save &amp; Exit" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

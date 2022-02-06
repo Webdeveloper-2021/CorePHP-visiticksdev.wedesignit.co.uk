@@ -1,0 +1,30 @@
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first active">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom scrollbox">
+		<div class="urow category-area">
+			<div class="category-area-container">
+<!-- START BLOCK : CATEGORY -->
+				<a href="#category_*{categoryid}*" title="*{categorytitle}*" class="changepage" onclick="loader(this);"><div class="category-box *{categoryclass}*">
+					<div class="category-box-left"><img src="*{categorypicture}*" alt="*{categorytitle}*" class="uimagerh"></div>
+					<div class="category-box-right">
+						<div class="urow category-box-right-top-category">
+							<div class="category-box-right-title sitefont urow ucentered">*{categorytitle}*</div>
+							<div class="category-box-right-text urow ucentered">*{categorydescription}*</div>
+						</div>
+						<div class="category-box-right-button urow ucentered"><div class="sitebutton sitefont">Browse Tickets</div></div>
+					</div>
+				</div></a>
+<!-- END BLOCK : CATEGORY -->
+			</div>
+		</div>
+	</div>

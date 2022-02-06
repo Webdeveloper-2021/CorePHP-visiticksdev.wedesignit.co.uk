@@ -1,0 +1,283 @@
+	<div class="urow tabs-empty halfed">
+		<form name="checkout" id="checkout-memberships" action="#" method="post">
+		<div class="urow memberships-cont">
+<!-- START BLOCK : MEMBERSHIP -->
+            <script>
+				if (!!document.getElementById('postcode_*{id}*_*{iteration}*')) {
+					IdealPostcodes.PostcodeLookup.setup({
+						apiKey: '*{INSTALL_POSTCODELOOKUPAPIKEY}*',
+						context: '#postcode_*{id}*_*{iteration}*',
+						outputFields: {
+							line_1: '#lookup_first_line_*{id}*_*{iteration}*',
+							line_2: '#lookup_second_line_*{id}*_*{iteration}*',
+							line_3: '#lookup_third_line_*{id}*_*{iteration}*',
+							post_town: '#lookup_post_town_*{id}*_*{iteration}*',
+							postcode: '#lookup_postcode_*{id}*_*{iteration}*',
+							country: '#country_*{id}*_*{iteration}*'
+						},
+						onAddressPopulated: function () {
+							FieldStatus('.postcode-lookup-input', '');
+							FieldStatus('#postcode-lookup-button', '');
+                            $('#membership_*{id}*_*{iteration}* .idpc-select-container').hide();
+						},
+						onLoaded: function () {
+							document.getElementsByClassName('postcode-lookup-input')[0].value = '*{postcode}*'
+						},
+						button: '#postcode-lookup-button_*{id}*_*{iteration}*',
+						inputClass: 'postcode-lookup-input normal'
+					});
+				}
+            </script>
+			<div class="content-half" id="membership_*{id}*_*{iteration}*" data-members="*{members}*" data-max-members="*{maxMembers}*">
+				<div class="urow">
+					<h2 class="sitefont">*{name}* Details</h2>
+				</div>
+				<div class="member">
+					<div class="urow form-row form-title">
+						<div class="form-title-half form-title-half-header">Member Details</div>
+					</div>
+                    <!-- START BLOCK : PRIMARYNAME -->
+                    <div class="urow form-row *{shown}*"><input name="memberships[*{iteration}*][*{id}*][members][primary][samename]" id="samename_*{id}*_*{iteration}*" type="checkbox" value="1" tabindex="*{id}**{iteration}*1" *{samenamecheckbox}* class="showHideName"><label for="samename_*{id}*_*{iteration}*">Name is the same as Billing Name</label></div>
+                    <div id="showanamecont_*{id}*_*{iteration}*" class="namecont *{samenameshow}* urow form-row">
+						<!-- START BLOCK : PRIMARYTITLE -->
+						<div class="urow form-row">
+							<div class="form-row-label">Title<span class="form-required *{namerequired}*">*</span></div>
+							<div class="form-row-field"><input name="memberships[*{iteration}*][*{id}*][members][primary][title]" id="title_*{id}*_*{iteration}*" type="text" size="20" value="*{title}*" tabindex="*{id}**{iteration}*2" class="textbox small small-left normal"></div>
+						</div>
+						<!-- END BLOCK : PRIMARYTITLE -->
+						<div class="form-row-label">Name<span class="form-required *{namerequired}*">*</span></div>
+                        <div class="form-row-field">
+                            <input name="memberships[*{iteration}*][*{id}*][members][primary][firstName]" id="firstname_*{id}*_*{iteration}*" type="text" size="20" value="*{firstname}*" tabindex="*{id}**{iteration}*2" class="textbox small small-left normal">
+                            <input name="memberships[*{iteration}*][*{id}*][members][primary][lastName]" id="lastname_*{id}*_*{iteration}*" type="text" size="20" value="*{lastname}*" tabindex="*{id}**{iteration}*3" class="textbox small normal">
+                        </div>
+                    </div>
+                    <!-- END BLOCK : PRIMARYNAME -->
+					<!-- START BLOCK : PRIMARYADDRESS -->
+					<div class="urow form-row"><input name="memberships[*{iteration}*][*{id}*][members][primary][sameaddress]" id="sameaddress_*{id}*_*{iteration}*" type="checkbox" value="1" class="showHideAddress" tabindex="*{id}**{iteration}*4" *{sameaddresscheckbox}*><label for="sameaddress_*{id}*_*{iteration}*">Address is the same as Billing Address</label></div>
+					<div id="showaddresscont_*{id}*_*{iteration}*" class="addresscont *{sameaddressshow}*">
+						<div class="urow form-row">
+							<div class="form-row-label">Find Address</div>
+							<div class="form-row-field postcode-lookup">
+								<div class="postcode-lookup-left">
+									<div id="postcode_*{id}*_*{iteration}*" tabindex="*{id}**{iteration}*5"></div>
+								</div>
+								<div class="postcode-lookup-right">
+									<div class="postcode-lookup-button normal" id="postcode-lookup-button_*{id}*_*{iteration}*" tabindex="*{id}**{iteration}*6"><i class="fas fa-search"></i></div>
+								</div>
+							</div>
+						</div>
+						<div class="urow form-row">
+							<div class="form-row-label">Address Line 1<span class="form-required">*</span></div>
+							<div class="form-row-field">
+								<input name="memberships[*{iteration}*][*{id}*][members][primary][lookup_first_line]" id="lookup_first_line_*{id}*_*{iteration}*" type="text" size="20" value="*{addressline1}*" class="textbox large small-left normal" tabindex="*{id}**{iteration}*7">
+							</div>
+						</div>
+						<div class="urow form-row">
+							<div class="form-row-label">Address Line 2</div>
+							<div class="form-row-field">
+								<input name="memberships[*{iteration}*][*{id}*][members][primary][lookup_second_line]" id="lookup_second_line_*{id}*_*{iteration}*" type="text" size="20" value="*{addressline2}*" class="textbox large small-left normal" tabindex="*{id}**{iteration}*8">
+							</div>
+						</div>
+						<div class="urow form-row">
+							<div class="form-row-label">Town/City<span class="form-required">*</span></div>
+							<div class="form-row-field">
+								<input name="memberships[*{iteration}*][*{id}*][members][primary][lookup_post_town]" id="lookup_post_town_*{id}*_*{iteration}*" type="text" size="20" value="*{addressline3}*" class="textbox large small-left normal" tabindex="*{id}**{iteration}*9">
+							</div>
+						</div>
+						<div class="urow form-row">
+							<div class="form-row-label">Postcode<span class="form-required">*</span></div>
+							<div class="form-row-field">
+								<input name="memberships[*{iteration}*][*{id}*][members][primary][lookup_postcode]" id="lookup_postcode_*{id}*_*{iteration}*" type="text" size="20" value="*{postcode}*" class="textbox large small-left normal">
+							</div>
+						</div>
+						<div class="urow form-row">
+							<div class="form-row-label">Country<span class="form-required">*</span></div>
+							<div class="form-row-field">
+								<select name="memberships[*{iteration}*][*{id}*][members][primary][country]" id="country_*{id}*_*{iteration}*" class="textbox large normal" required="required" tabindex="*{id}**{iteration}*10">
+									<option value=""></option>
+									<!-- START BLOCK : PRIMARYCOUNTRY -->
+									<option value="*{countrykey}*" *{selected}*>*{countryname}*</option>
+									<!-- END BLOCK : PRIMARYCOUNTRY -->
+								</select>
+							</div>
+						</div>
+					</div>
+					<!-- END BLOCK : PRIMARYADDRESS -->
+                    <!-- START BLOCK : PRIMARYDOB -->
+					<div class="urow form-row">
+						<div class="form-row-label">Date of Birth<span class="form-required">*</span></div>
+						<div class="form-row-field">
+							<select name="memberships[*{iteration}*][*{id}*][members][primary][dob_dd]" id="dob_dd_*{id}*_*{iteration}*" tabindex="*{id}**{iteration}*11" class="textbox normal" style="margin-right: 10px;" required="required">
+								<option value="">DD</option>
+								<!-- START BLOCK : DAY -->
+								<option value="*{day}*" *{selectedday}*>*{day}*</option>
+								<!-- END BLOCK : DAY -->
+							</select>
+							<select name="memberships[*{iteration}*][*{id}*][members][primary][dob_mm]" id="dob_mm_*{id}*_*{iteration}*" tabindex="*{id}**{iteration}*12" class="textbox normal" style="margin-right: 10px;" required="required">
+								<option value="">MM</option>
+								<!-- START BLOCK : MONTH -->
+								<option value="*{month}*" *{selectedmonth}*>*{month}*</option>
+								<!-- END BLOCK : MONTH -->
+							</select>
+							<select name="memberships[*{iteration}*][*{id}*][members][primary][dob_yyyy]" id="dob_yyyy_*{id}*_*{iteration}*" tabindex="*{id}**{iteration}*13" class="textbox normal" required="required">
+								<option value="">YYYY</option>
+								<!-- START BLOCK : YEAR -->
+								<option value="*{year}*" *{selectedyear}*>*{year}*</option>
+								<!-- END BLOCK : YEAR -->
+							</select>
+						</div>
+					</div>
+                    <!-- END BLOCK : PRIMARYDOB -->
+                    <!-- START BLOCK : PRIMARYPHONE -->
+                    <div class="urow form-row">
+                        <div class="form-row-label">Telephone<span class="form-required *{phonerequired}*">*</span></div>
+                        <div class="form-row-field">
+                            <input name="memberships[*{iteration}*][*{id}*][members][primary][phone]" id="phone_*{id}*_*{iteration}*" type="text" size="20" value="*{phone}*" data-billingphone="*{billingphone}*" tabindex="*{id}**{iteration}*14" class="textbox large small-left normal">
+                        </div>
+                    </div>
+                    <!-- END BLOCK : PRIMARYPHONE -->
+                    <!-- START BLOCK : PRIMARYEMAIL -->
+                    <div class="urow form-row">
+                        <div class="form-row-label">Email<span class="form-required *{emailrequired}*">*</span></div>
+                        <div class="form-row-field">
+                            <input name="memberships[*{iteration}*][*{id}*][members][primary][email]" id="email_*{id}*_*{iteration}*" type="text" size="20" value="*{email}*" data-billingemail="*{billingemail}*" tabindex="*{id}**{iteration}*15" class="textbox large small-left normal">
+                        </div>
+                    </div>
+                    <!-- END BLOCK : PRIMARYEMAIL -->
+
+                    <!-- START BLOCK : PRIMARYMARKETING -->
+                    <div class="urow form-row marketing uhide"><input name="memberships[*{iteration}*][*{id}*][members][primary][marketing]" id="marketing_*{id}*_*{iteration}*" type="checkbox" value="YES" tabindex="*{id}**{iteration}*16"><label for="marketing_*{id}*_*{iteration}*">*{SETTING_MARKETINGTEXT}*</label></div>
+                    <!-- END BLOCK : PRIMARYMARKETING -->
+
+					<!-- START BLOCK : CHILD -->
+					<input type="hidden" name="memberships[*{iteration}*][*{id}*][members][primary][isChild]" value="1">
+					<!-- END BLOCK : CHILD -->
+				</div>
+
+				<template id="addonMember_*{id}*_*{iteration}*">
+					<div class="member">
+						<div class="urow form-row form-title">
+							<div class="form-title-half form-title-half-header">Member Details</div>
+							<div class="form-title-half form-title-half-link"><a href="#" title="Remove" class="remove-member" data-membership-id="*{id}*_*{iteration}*"><i class="fas fa-minus-circle"></i>Remove Member</a></div>
+						</div>
+                        <!-- START BLOCK : ADDITIONALNAME -->
+						<div class="urow form-row *{namerequired}*">
+							<!-- START BLOCK : ADDITIONALTITLE -->
+							<div class="urow form-row">
+								<div class="form-row-label">Title<span class="form-required requiredfield">*</span></div>
+								<div class="form-row-field"><input name="memberships[*{iteration}*][*{id}*][members][[number]][title]" id="title_*{id}*_*{iteration}*_[number]" type="text" size="20" value="*{title}*" tabindex="*{id}**{iteration}*17" class="textbox small small-left normal"></div>
+							</div>
+							<!-- END BLOCK : ADDITIONALTITLE -->
+							<div class="form-row-label">Name<span class="form-required *{namerequired}*">*</span></div>
+							<div class="form-row-field">
+								<input name="memberships[*{iteration}*][*{id}*][members][[number]][firstName]" id="firstname_*{id}*_*{iteration}*_[number]" type="text" size="20" value="*{firstname}*" tabindex="*{id}**{iteration}*17" class="textbox small small-left normal">
+								<input name="memberships[*{iteration}*][*{id}*][members][[number]][lastName]" id="lastname_*{id}*_*{iteration}*_[number]" type="text" size="20" value="*{lastname}*" tabindex="*{id}**{iteration}*18" class="textbox small normal">
+							</div>
+						</div>
+                        <!-- END BLOCK : ADDITIONALNAME -->
+						<!-- START BLOCK : ADDITIONALCHILDSELECTION -->
+						<div class="urow form-row"><input name="memberships[*{iteration}*][*{id}*][members][[number]][isChild]" id="ischild_*{id}*_*{iteration}*_[number]" class="is-child" type="checkbox" value="1" tabindex="*{id}**{iteration}*19"><label for="ischild_*{id}*_*{iteration}*_[number]">This member is a child</label></div>
+						<!-- END BLOCK : ADDITIONALCHILDSELECTION -->
+
+						<!-- START BLOCK : ADDITIONALDOB -->
+						<div class="urow form-row *{dobrequired}*">
+							<div class="form-row-label">Date of Birth<span class="form-required *{dobrequired}*">*</span></div>
+							<div class="form-row-field">
+								<select name="memberships[*{iteration}*][*{id}*][members][[number]][dob_dd]" id="dob_dd_*{id}*_*{iteration}*_[number]" tabindex="*{id}**{iteration}*20" class="textbox normal" style="margin-right: 10px;">
+									<option value="">DD</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
+								</select>
+								<select name="memberships[*{iteration}*][*{id}*][members][[number]][dob_mm]" id="dob_mm_*{id}*_*{iteration}*_[number]" tabindex="*{id}**{iteration}*21" class="textbox normal" style="margin-right: 10px;">
+									<option value="">MM</option>
+									<option value="01">01</option>
+									<option value="02">02</option>
+									<option value="03">03</option>
+									<option value="04">04</option>
+									<option value="05">05</option>
+									<option value="06">06</option>
+									<option value="07">07</option>
+									<option value="08">08</option>
+									<option value="09">09</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+								<select name="memberships[*{iteration}*][*{id}*][members][[number]][dob_yyyy]" id="dob_yyyy_*{id}*_*{iteration}*_[number]" tabindex="*{id}**{iteration}*22" class="textbox normal" required="required">
+									<option value="">YYYY</option>
+									<!-- START BLOCK : ADDITIONALYEAR -->
+									<option value="*{year}*">*{year}*</option>
+									<!-- END BLOCK : ADDITIONALYEAR -->
+								</select>
+							</div>
+						</div>
+                        <!-- END BLOCK : ADDITIONALDOB -->
+                        <!-- START BLOCK : ADDITIONALPHONE -->
+                        <div class="urow form-row *{phonerequired}*">
+                            <div class="form-row-label">Telephone<span class="form-required *{phonerequired}*">*</span></div>
+                            <div class="form-row-field">
+                                <input name="memberships[*{iteration}*][*{id}*][members][[number]][email]" id="email_*{id}*_*{iteration}*_[number]" type="text" size="20" value="*{phone}*" tabindex="*{id}**{iteration}*23" class="textbox large small-left normal">
+                            </div>
+                        </div>
+                        <!-- END BLOCK : ADDITIONALPHONE -->
+                        <!-- START BLOCK : ADDITIONALEMAIL -->
+                        <div class="urow form-row *{emailrequired}*">
+                            <div class="form-row-label">Email<span class="form-required *{emailrequired}*">*</span></div>
+                            <div class="form-row-field">
+                                <input name="memberships[*{iteration}*][*{id}*][members][[number]][email]" id="email_*{id}*_*{iteration}*_[number]" type="text" size="20" value="*{email}*" tabindex="*{id}**{iteration}*24" class="textbox large small-left normal">
+                            </div>
+                        </div>
+                        <!-- END BLOCK : ADDITIONALEMAIL -->
+
+                        <!-- START BLOCK : ADDITIONALMARKETING -->
+                        <div class="urow form-row *{marketingrequired}*"><input name="memberships[*{iteration}*][*{id}*][members][[number]][marketing]" id="marketing_*{id}*_*{iteration}*_[number]" type="checkbox" value="YES" tabindex="*{id}**{iteration}*25"><label for="marketing_*{id}*_*{iteration}*_[number]">*{SETTING_MARKETINGTEXT}*</label></div>
+                        <!-- END BLOCK : ADDITIONALMARKETING -->
+
+						<!-- START BLOCK : ADDITIONALCHILD -->
+						<input type="hidden" name="memberships[*{iteration}*][*{id}*][members][[number]][isChild]" value="1">
+						<!-- END BLOCK : ADDITIONALCHILD -->
+					</div>
+				</template>
+
+				<div class="addonmembers">*{addonsessionmembers}*</div>
+
+				<!-- START BLOCK : ADDITIONALMEMBER -->
+				<div class="urow form-row form-addmore"><a href="#" title="Add Another Member" class="add-member" data-membership-id="*{id}*_*{iteration}*"><i class="fas fa-plus-circle"></i>Add Another Member</a></div>
+				<!-- END BLOCK : ADDITIONALMEMBER -->
+                <div class="urow uinlineerror uhide" id="formerror_*{id}*_*{iteration}*"></div>
+			</div>
+<!-- END BLOCK : MEMBERSHIP -->
+            <div class="urow uinlineerror uhide" id="formerror"></div>
+            <div class="urow cart-next"><a href="#checkout-summary" title="Continue to Summary" class="sitebutton sitefont changepage checkout-memberships" onclick="loader(this);">Continue to Summary &gt;</a></div>
+		</div>
+		</form>
+	</div>

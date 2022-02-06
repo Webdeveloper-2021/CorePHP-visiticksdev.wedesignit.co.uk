@@ -1,0 +1,91 @@
+<?php
+
+///*****************************************************************************///
+///UNIVERSAL PAGE CODE: COPYRIGHT NOTICE?///
+///*****************************************************************************///
+///*****************************************************************************///
+///UNIVERSAL PAGE CODE: LOAD INCLUDED FILES AND SETUP TEMPLATING///
+///*****************************************************************************///
+
+	$admintoken = "PERMISSION";
+	$adminpermission = "20";
+
+	require($install_path."/includes/visitickets.php");
+	require($install_path."/includes/admin.php");
+
+	$PHPTemplateLayer = new PHPTemplateLayer();
+	$PHPTemplateLayer->prepare($install_path."/admin/templates/events-sessions-add.htm");
+
+///*****************************************************************************///
+///UNIVERSAL PAGE CODE: UNIVERAL VARIABLES///
+///*****************************************************************************///
+
+	$PHPTemplateLayer->assignGlobal("SETTING_TITLE",SETTING_TITLE);
+	$PHPTemplateLayer->assignGlobal("INSTALL_VISITICKETS",INSTALL_VISITICKETS);
+	$PHPTemplateLayer->assignGlobal("U_YEAR",$U_YEAR);
+
+///*****************************************************************************///
+///UNIVERSAL PAGE CODE: GET VARIABLES///
+///*****************************************************************************///
+
+	$success = $_GET['success'];
+	$error = $_GET['error'];
+	$pagenumber = $_GET['pagenumber'];
+	$tab = $_GET['tab'];
+	$id = $_GET['id'];
+
+///*****************************************************************************///
+///PROCESS CANCEL///
+///*****************************************************************************///
+
+		if($_POST['cancel'])
+		{
+		header("Location:events-sessions.php?id=$id&pagenumber=$pagenumber");
+		exit();
+		}
+
+///*****************************************************************************///
+///GET EVENT DATA///
+///*****************************************************************************///
+
+//		if(!$id)
+//		{
+//		header("Location:index.php?error=unexpected");
+//		exit();
+//		}
+
+
+///*****************************************************************************///
+///MAKE USER INPUT SAFE AND VALIDATE DATA///
+///*****************************************************************************///
+
+
+
+///*****************************************************************************///
+///INDIVIDUAL PAGE CODE: SET CLASSES///
+///*****************************************************************************///
+
+
+///*****************************************************************************///
+///IS USER INPUT ERRORS RETURN APPROPRIATE MESSAGES///
+///*****************************************************************************///
+
+		if($error || $apierror)
+		{
+		$PHPTemplateLayer->block("ERROR");
+
+			if($apierror)
+			{
+			$error = ShowAPIError($apierror);
+			}
+			else
+			{
+			$error = "Please correct the errors displayed below.";
+			}
+
+		$PHPTemplateLayer->assign("error",$error);
+
+		}
+
+	$PHPTemplateLayer->display('','','MINIFY');
+?>

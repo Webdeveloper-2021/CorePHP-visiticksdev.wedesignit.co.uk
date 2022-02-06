@@ -1,0 +1,101 @@
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom" id="content-cart">
+<!-- START BLOCK : CARTWARNING -->
+		<div class="urow cart-warning uinlineerror" id="cart-warning">Items in your shopping cart are reserved for <span class="usemibold" id="countdown">12 minutes</span> - please checkout before your items are removed.</div>
+<!-- END BLOCK : CARTWARNING -->
+		<div class="urow">
+			<h1 class="sitefont">Your Shopping Cart</h1>
+		</div>
+		<div class="urow">
+			<form id="cart-items">
+<!-- START BLOCK : EMPTYNOTICE -->
+				<div class="product-row notice-row urow">
+					<div>Your cart is currently empty.</div>
+				</div>
+<!-- END BLOCK : EMPTYNOTICE -->
+<!-- START BLOCK : EXPIREDNOTICE -->
+				<div class="product-row notice-row urow">
+					<div>Sorry, your shopping cart has expired and your items have been removed.</div>
+				</div>
+				<script>
+					$(document).ready(function(){ $('#top-cart-items').text(0); });
+				</script>
+<!-- END BLOCK : EXPIREDNOTICE -->
+<!-- START BLOCK : ITEM -->
+<!-- START BLOCK : ITEMPRODUCT -->
+			<div class="product-row urow item *{membership}*" data-id="*{id}*" data-price="*{price}*" data-quantity="*{quantity}*">
+				<div class="product-row-picture"><a href="#" data-featherlight="*{picture}*"><img src="*{picture}*" alt="*{name}*" class="uimagerh"></a></div>
+				<div class="product-row-left">
+					<div class="product-row-title">
+						<div class="product-row-title-top urow">*{name}*</div>
+						<div class="product-row-title-bottom urow">*{description}*</div>
+						<div class="product-row-title-delete urow"><a href="#cart" title="Remove" class="remove-from-cart" data-id="*{id}*"><i class="fas fa-trash-alt"></i>Remove</a></div>
+					</div>
+					<div class="product-price-qty">
+						<div class="product-row-price">&pound;<span>*{price}*</span></div>
+<!-- START BLOCK : VARIABLEQUANTITY -->
+						<div class="product-row-qty">
+							<div class="product-row-qty adjust less"><a href="#cart" title="Remove"><i class="fas fa-minus-circle"></i></a></div>
+							<div class="product-row-qty adjust amount">
+								<input name="qty[*{id}*]" id="qty_*{id}*" type="number" size="2" min="1" max="*{maxquantity}*" maxlength="2" value="*{quantity}*" class="textbox cart noarrows" required="required"></div>
+							<div class="product-row-qty adjust more"><a href="#cart" title="Add"><i class="fas fa-plus-circle"></i></a></div>
+						</div>
+<!-- END BLOCK : VARIABLEQUANTITY -->
+<!-- START BLOCK : STATICQUANTITY -->
+						<input name="qty[*{id}*][event]" id="qty_*{id}*" type="hidden" value="*{quantity}*">
+<!-- END BLOCK : STATICQUANTITY -->
+						</div>
+				</div>
+			</div>
+<!-- END BLOCK : ITEMPRODUCT -->
+<!-- START BLOCK : ITEMEVENT -->
+				<div class="product-row urow event" data-id="*{id}*" data-price="*{price}*" data-quantity="*{quantity}*">
+					<div class="product-row-picture"><a href="#" data-featherlight="*{picture}*"><img src="*{picture}*" alt="*{name}*" class="uimagerh"></a></div>
+					<div class="product-row-left">
+						<div class="product-row-title">
+							<div class="product-row-title-top urow">*{eventname}* *{name}*</div>
+							<div class="product-row-title-bottom urow"><span class="*{free}*event-ticket-count">*{people}*</span> *{ticketsText}*.</div>
+							<div class="product-row-title-bottom urow">*{date}* *{startTime}* *{endTime}*</div>
+							<div class="product-row-title-delete urow"><a href="#cart" title="Remove" class="remove-from-cart" data-id="*{id}*"><i class="fas fa-trash-alt"></i>Remove</a></div>
+						</div>
+						<div class="product-price-qty">
+							<div class="product-row-price">&pound;*{price}*</div>
+							<input name="qty[*{id}*][event]" id="qty_*{id}*" type="hidden" value="*{quantity}*" class="*{free}*event-ticket-count">
+						</div>
+					</div>
+				</div>
+<!-- START BLOCK : ITEMEVENT -->
+<!-- END BLOCK : ITEM -->
+			</form>
+<!-- START BLOCK : OFFER -->
+			<div class="product-row urow offer-row">
+				<div class="product-row-picture mobilehide">&nbsp;</div>
+				<div class="product-row-titlepriceqty">
+					<div class="product-row-title-bottom urow"><a href="#category_*{SETTING_OFFER_LINK}*" title="View Details" class="changepage"><i class="fas fa-plus-circle"></i>*{SETTING_OFFER_TEXT}*</a></div>
+				</div>
+			</div>
+<!-- END BLOCK : OFFER -->
+<!-- START BLOCK : CHECKOUT -->
+			<div class="total-row urow" data-total="*{total}*">
+				<div class="product-row-picture mobilehide">&nbsp;</div>
+				<div class="product-row-title">
+					<div class="product-row-title-top urow">Total</div>
+				</div>
+				<div class="product-row-price">&pound;<span>*{total}*</span></div>
+				<div class="product-row-qty buttoned"><a href="#checkout" title="Checkout" class="sitebutton sitefont changepage checkout" onclick="loader(this);"><i class="fas fa-plus"></i>Checkout</a></div>
+			</div>
+<!-- END BLOCK : CHECKOUT -->
+		</div>
+	</div>
+	<script>window.cart_expires = '*{cartexpires}*';</script>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Setup: Content | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+function showHidePanel1()
+{
+	for(var i=0;i< document.login.categoryimagetype.length;i++)
+	{
+		if(document.login.categoryimagetype[i].checked)
+		{
+		var categoryimagetype = document.login.categoryimagetype[i].value;
+		}
+	}
+
+	if(categoryimagetype == 'NEW')
+	{
+	document.getElementById('categoryreplaceimage').style.display = 'inline';
+	document.getElementById('categorysameimage').style.display = 'none';
+	}
+	else if(categoryimagetype == 'EXISTING')
+	{
+	document.getElementById('categoryreplaceimage').style.display = 'none';
+	document.getElementById('categorysameimage').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('categoryreplaceimage').style.display = 'none';
+	document.getElementById('categorysameimage').style.display = 'none';
+	}
+}
+function showHidePanel2()
+{
+	for(var i=0;i< document.login.eventimagetype.length;i++)
+	{
+		if(document.login.eventimagetype[i].checked)
+		{
+		var eventimagetype = document.login.eventimagetype[i].value;
+		}
+	}
+
+	if(eventimagetype == 'NEW')
+	{
+	document.getElementById('eventreplaceimage').style.display = 'inline';
+	document.getElementById('eventsameimage').style.display = 'none';
+	}
+	else if(eventimagetype == 'EXISTING')
+	{
+	document.getElementById('eventreplaceimage').style.display = 'none';
+	document.getElementById('eventsameimage').style.display = 'inline';
+	}
+	else
+	{
+	document.getElementById('eventreplaceimage').style.display = 'none';
+	document.getElementById('eventsameimage').style.display = 'none';
+	}
+}
+function encodeHomePointImageFileAsURL() {
+	const file = document.getElementById('HomeCategoryImageFileName').files[0];
+	const reader = new FileReader();
+
+	reader.addEventListener("load", function () {
+		document.getElementById('HomeCategoryImageFileData').value = reader.result.split(',')[1];
+	}, false);
+
+	if (file) {
+		reader.readAsDataURL(file);
+	} else {
+		document.getElementById('HomeCategoryImageFileData').value = '';
+	}
+}
+function encodeHomeEventImageFileAsURL() {
+	const file = document.getElementById('HomeEventImageFileName').files[0];
+	const reader = new FileReader();
+
+	reader.addEventListener("load", function () {
+		document.getElementById('HomeEventImageFileData').value = reader.result.split(',')[1];
+	}, false);
+
+	if (file) {
+		reader.readAsDataURL(file);
+	} else {
+		document.getElementById('HomeEventImageFileData').value = '';
+	}
+}
+</script>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="/admin/js/tinymce/tinymce.min.js"></script>
+<script src="/admin/js/tinymce.options.js"></script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body onload="showHidePanel1();showHidePanel2();">
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content" class="active"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Setup: Content</h1>
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+<!-- START BLOCK : SUCCESS -->
+			<div class="success">
+				<div class="success-inner">
+					<div class="message-inner"><strong>CONFIRMATION:</strong> *{success}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : SUCCESS -->
+			<div class="tabs">
+				<ul>
+					<li><a href="settings-content-home.php" title="Homepage &amp; Navigation" class="active">Homepage &amp; Navigation</a></li>
+					<li><a href="settings-content-misc.php" title="Misc Content">Misc Content</a></li>
+					<li><a href="settings-content-pages.php" title="Pages">Pages</a></li>
+					<li><a href="settings-content-emails.php" title="Emails">Emails</a></li>
+				</ul>
+			</div>
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-header topper">Homagepage</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Home Category Button Text <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="HomeCategoryButtonText" type="text" class="textbox-normal *{HomeCategoryButtonTextclass}*" size="20" value="*{HomeCategoryButtonText}*"></div>
+							<div class="formarea-row-right-error">*{error1}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Home Category Text <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your text will be truncated to a maximum length of 140 characters.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><textarea rows="5" name="HomeCategoryText" cols="20" class="textbox-normal *{HomeCategoryTextclass}* tinymce-small">*{HomeCategoryText}*</textarea></div>
+							<div class="formarea-row-right-error">*{error2}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Home Category Image (Optional)
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your image should be in the ratio of 300 pixels wide x 250 pixels high (or increments thereof) and a maximum of 2MB in size.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+<!-- START BLOCK : CATEGORYIMG -->
+							<div class="formarea-row-right-input" style="margin-bottom:20px;">
+								<ul class="options">
+									<li><input type="radio" value="EXISTING" name="categoryimagetype" id="categoryEXISTING" *{categoryimagetypechecked1}* onclick="showHidePanel1();"> <label for="categoryEXISTING">Keep Existing Image</label></li>
+									<li><input type="radio" value="NEW" name="categoryimagetype" id="categoryNEW" *{categoryimagetypechecked2}* onclick="showHidePanel1();"> <label for="categoryNEW">Replace Image</label></li>
+									<li><input type="radio" value="NONE" name="categoryimagetype" id="categoryNONE" *{categoryimagetypechecked3}* onclick="showHidePanel1();"> <label for="categoryNONE">Remove Image</label></li>
+								</ul>
+							</div>
+							<div class="formarea-row-right-input editimage" id="categorysameimage"><img src="*{categorypicture}*" alt="Current Image" class="urounded"></div>
+<!-- END BLOCK : CATEGORYIMG -->
+							<div class="formarea-row-right-input" id="categoryreplaceimage">
+								<input name="HomeCategoryImageFileName" type="file" id="HomeCategoryImageFileName" class="textbox-normal *{HomeCategoryImageFileNameclass}*" size="20" value="" onchange="encodeHomePointImageFileAsURL()">
+								<input name="HomeCategoryImageFileData" type="hidden" id="HomeCategoryImageFileData" value="*{HomeCategoryImageFileData}*">
+							</div>
+							<div class="formarea-row-right-error">*{error3}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Home Event Button Text <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="HomeEventButtonText" type="text" class="textbox-normal *{HomeEventButtonTextclass}*" size="20" value="*{HomeEventButtonText}*"></div>
+							<div class="formarea-row-right-error">*{error4}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Home Event Text <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your text will be truncated to a maximum length of 140 characters.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><textarea rows="5" name="HomeEventText" cols="20" class="textbox-normal *{HomeEventTextclass}* tinymce-small">*{HomeEventText}*</textarea></div>
+							<div class="formarea-row-right-error">*{error5}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Home Event Image (Optional)
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your image should be in the ratio of 300 pixels wide x 250 pixels high (or increments thereof) and a maximum of 2MB in size.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+<!-- START BLOCK : EVENTIMG -->
+							<div class="formarea-row-right-input" style="margin-bottom:20px;">
+								<ul class="options">
+									<li><input type="radio" value="EXISTING" name="eventimagetype" id="eventEXISTING" *{eventimagetypechecked1}* onclick="showHidePanel2();"> <label for="eventEXISTING">Keep Existing Image</label></li>
+									<li><input type="radio" value="NEW" name="eventimagetype" id="eventNEW" *{eventimagetypechecked2}* onclick="showHidePanel2();"> <label for="eventNEW">Replace Image</label></li>
+									<li><input type="radio" value="NONE" name="eventimagetype" id="eventNONE" *{eventimagetypechecked3}* onclick="showHidePanel2();"> <label for="eventNONE">Remove Image</label></li>
+								</ul>
+							</div>
+							<div class="formarea-row-right-input editimage" id="eventsameimage"><img src="*{eventpicture}*" alt="Current Image" class="urounded"></div>
+<!-- END BLOCK : EVENTIMG -->
+							<div class="formarea-row-right-input" id="eventreplaceimage">
+								<input name="HomeEventImageFileName" type="file" id="HomeEventImageFileName" class="textbox-normal *{HomeEventImageFileNameclass}*" size="20" value="" onchange="encodeHomeEventImageFileAsURL()">
+								<input name="HomeEventImageFileData" type="hidden" id="HomeEventImageFileData" value="*{HomeEventImageFileData}*">
+							</div>
+							<div class="formarea-row-right-error">*{error6}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-group">
+					<div class="formarea-header">Navigation Tabs</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Categories Tab Text <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your text will be truncated to a maximum length of 12 characters.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="CategoriesTabText" type="text" class="textbox-normal *{CategoriesTabTextclass}*" size="20" value="*{CategoriesTabText}*"></div>
+							<div class="formarea-row-right-error">*{error7}*</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Calendar Tab Text <span class="required">*</span>
+							<div class="tooltip"><i class="fas fa-question-circle"></i>
+								<div class="tooltip-left">Your text will be truncated to a maximum length of 12 characters.</div>
+							</div>
+						</div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input"><input name="CalendarTabText" type="text" class="textbox-normal *{CalendarTabTextclass}*" size="20" value="*{CalendarTabText}*"></div>
+							<div class="formarea-row-right-error">*{error8}*</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

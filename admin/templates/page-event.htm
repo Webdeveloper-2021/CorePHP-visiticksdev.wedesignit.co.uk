@@ -1,0 +1,39 @@
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last active">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom">
+		<div class="urow">
+			<h1 class="sitefont">*{name}*</h1>
+		</div>
+		<div class="urow">
+			<div class="product-row-single urow">
+				<div class="product-row-picture"><img src="*{picture}*" alt="*{title}*" class="uimagerh" data-featherlight="*{picture}*"></div>
+				<div class="product-row-titlepriceqty">
+					<div class="product-row-title-bottom urow">*{description}*</div>
+					<div class="product-row-title-book">From <span class="usemibold">&pound;*{minPrice}*</span></div>
+				</div>
+			</div>
+			<div class="buttons urow">
+				<ul>
+					<li><a href="#event-tickets_*{id}*" title="Buy Tickets" class="sitebutton sitefont changepage" onclick="loader(this);">Buy Tickets</a></li>
+<!-- START BLOCK : MEMBERSHIPBTNSLOGGEDIN -->
+					<li><a href="#event-memberships_*{id}*" title="I Have a *{SETTING_PASSTITLE_SINGLE}*" class="sitebutton sitefont changepage" onclick="loader(this);">I Have a *{SETTING_PASSTITLE_SINGLE}*</a></li>
+					<li><a href="#event-buymemberships_*{id}*" title="I Want to *{SETTING_PASSTITLE_SINGLE}*" class="sitebutton sitefont changepage" onclick="loader(this);">I Want to Buy a *{SETTING_PASSTITLE_SINGLE}*</a></li>
+<!-- END BLOCK : MEMBERSHIPBTNSLOGGEDIN -->
+<!-- START BLOCK : MEMBERSHIPBTNSNOTLOGGEDIN -->
+					<li><a href="#login_1|*{id}*" title="I Have a *{SETTING_PASSTITLE_SINGLE}*" class="sitebutton sitefont changepage" onclick="loader(this);">I Have a *{SETTING_PASSTITLE_SINGLE}*</a></li>
+					<li><a href="#login_2|*{id}*" title="I Want to Buy a *{SETTING_PASSTITLE_SINGLE}*" class="sitebutton sitefont changepage" onclick="loader(this);">I Want to Buy a *{SETTING_PASSTITLE_SINGLE}*</a></li>
+<!-- END BLOCK : MEMBERSHIPBTNSNOTLOGGEDIN -->
+				</ul>
+			</div>
+		</div>
+	</div>

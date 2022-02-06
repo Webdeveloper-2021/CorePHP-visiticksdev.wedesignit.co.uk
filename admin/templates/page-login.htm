@@ -1,0 +1,22 @@
+	<div class="urow">
+		<h2 class="sitefont">Login</h2>
+		<p>Don't have an account? <a href="*{registerurl}*" title="Register Here" class="changepage" tabindex="1">Register Here</a></p>
+	</div>
+	<form id="login-form" action="#" method="post">
+	<div class="urow uinlineerror uhide uspaced-small" id="formerror">Please correct the errors highlighted below:</div>
+	<div class="urow form-row">
+		<div class="form-row-label">Email<span class="form-required">*</span></div>
+		<div class="form-row-field"><input name="email" id="email" type="email" size="20" value="*{email}*" tabindex="2" class="textbox large normal"></div>
+	</div>
+	<div class="urow form-row">
+		<div class="form-row-label">Password<span class="form-required">*</span></div>
+		<div class="form-row-field"><input name="password" id="password" type="password" size="20" value="*{password}*" tabindex="3" class="textbox large normal"></div>
+	</div>
+	<div class="urow form-row form-addmore"><a href="#forgotpassword" title="Forgotten Your Password?" class="changepage" tabindex="4"><i class="fas fa-key"></i>Forgotten Your Password?</a></div>
+	<div class="urow account-next">
+<!-- START BLOCK : REDIRECT -->
+		<input type="hidden" name="redirect" value="*{redirect}*">
+<!-- END BLOCK : REDIRECT -->
+		<button type="submit" name="submit-login-form" id="submit-login-form" class="sitebutton sitefont" tabindex="5" onclick="loader(this);">Login</button>
+	</div>
+	</form>

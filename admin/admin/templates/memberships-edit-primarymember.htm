@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Edit Membership | Visitickets Dashboard: *{SETTING_TITLE}*</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/3481d5ebda.js" crossorigin="anonymous"></script>
+<link href="/admin/css/style.php" media="all" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- START INDIVIDUAL JAVASCRIPT -->
+<script language="JavaScript" type="text/JavaScript">
+function confirmcancel()
+{
+	if (confirm("Are you sure you want to exit this page? All changes will be lost"))
+	{
+	  return true;
+	}
+		 	  return false;
+}
+</script>
+<!-- END INDIVIDUAL JAVASCRIPT -->
+</head>
+<body>
+<div class="outer">
+	<div class="outer-top">
+		<div class="outer-top-inner">
+			<div class="outer-top-inner-inner">
+				<div class="outer-top-inner-inner-left"><a href="index.php" title="Dashboard Main Page"><img src="/admin/img/VisiSoft-Logo-Horizontal-2-Pure-White.webp" alt="Visitickets Dashboard: *{SETTING_TITLE}*" class="uimageh"/></a></div>
+				<div class="outer-top-inner-inner-right">
+					<ul>
+						<li><a href="account-logout.php" title="Logout" tabindex="4"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+						<li><a href="account-settings.php" title="My Account" tabindex="3"><i class="fas fa-user"></i>My Account</a></li>
+						<li><a href="/" title="View Website" target="_blank" tabindex="2"><i class="fas fa-external-link-square-alt"></i>View Website</a></li>
+						<li><a href="index.php" title="Dashboard Homepage" tabindex="1"><i class="fas fa-home"></i>Home</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-middle">
+		<div class="outer-middle-inner">
+			<div class="outer-middle-inner-inner">
+				<div class="outer-middle-left">
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Sales</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="orders.php" title="Orders"><i class="fas fa-shopping-cart"></i>Orders</a></li>
+						<li><a href="subscriptions.php" title="Subscriptions"><i class="fas fa-id-card"></i>Subscriptions</a></li>
+						<li><a href="customers.php" title="Customers"><i class="fas fa-user-friends"></i>Customers</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Inventory</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="events.php" title="Events"><i class="fas fa-calendar-alt"></i>Events</a></li>
+						<li><a href="items.php" title="Item"><i class="fas fa-box-open"></i>Items</a></li>
+						<li><a href="categories.php" title="Categories"><i class="fas fa-folder"></i>Categories</a></li>
+						<li><a href="memberships.php" title="Membership Types" class="active"><i class="fas fa-id-card-alt"></i>Membership Types</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Setup</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="settings-configuration-general.php" title="Configuration"><i class="fas fa-cog"></i>Configuration</a></li>
+						<li><a href="settings-branding-images.php" title="Branding"><i class="fas fa-images"></i>Branding</a></li>
+						<li><a href="settings-content-home.php" title="Content"><i class="fas fa-file-alt"></i>Content</a></li>
+						<li><a href="settings-reporting-categories.php" title="Reporting"><i class="fas fa-chart-line"></i>Reporting</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="outer-middle-left-unit">
+				<div class="outer-middle-left-unit-header">Users</div>
+				<div class="outer-middle-left-unit-body">
+					<ul>
+						<li><a href="users.php" title="Users"><i class="fas fa-user-lock"></i>Users</a></li>
+						<li><a href="users-roles.php" title="User Roles"><i class="fas fa-lock"></i>User Roles</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="outer-middle-right">
+			<h1>Edit Membership: *{contenttitle}*</h1>
+<!-- START BLOCK : SUCCESS -->
+			<div class="success">
+				<div class="success-inner">
+					<div class="message-inner"><strong>CONFIRMATION:</strong> *{success}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : SUCCESS -->
+<!-- START BLOCK : ERROR -->
+			<div class="error">
+				<div class="error-inner">
+					<div class="message-inner"><strong>ERROR:</strong> *{error}*</div>
+				</div>
+			</div>
+<!-- END BLOCK : ERROR -->
+			<div class="tabs">
+				<ul>
+					<li><a href="memberships-edit.php?id=*{id}*&amp;page=*{page}*&amp;tab=*{tab}*" title="Edit Details">Edit Details</a></li>
+					<li><a href="memberships-edit-primarymember.php?id=*{id}*&amp;page=*{page}*&amp;tab=*{tab}*" title="Primary Member Data Capture" class="active">Primary Member Data Capture</a></li>
+<!-- START BLOCK : MIXEDTABS -->
+					<li><a href="memberships-edit-additionaladult.php?id=*{id}*&amp;page=*{page}*&amp;tab=*{tab}*" title="Additional Adult Data Capture">Additional Adult Data Capture</a></li>
+					<li><a href="memberships-edit-additionalchild.php?id=*{id}*&amp;page=*{page}*&amp;tab=*{tab}*" title="Additional Child Data Capture">Additional Child Data Capture</a></li>
+<!-- END BLOCK : MIXEDTABS -->
+				</ul>
+			</div>
+			<div class="formarea">
+			<form action="" method="post" name="login" enctype="multipart/form-data">
+				<div class="formarea-group">
+					<div class="formarea-row">
+						<div class="formarea-row-left">Name <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="primaryMemberNameCaptureType" id="primaryMemberNameCaptureType0" *{primaryMemberNameCaptureTypechecked0}*> <label for="primaryMemberNameCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="2" name="primaryMemberNameCaptureType" id="primaryMemberNameCaptureType2" *{primaryMemberNameCaptureTypechecked2}*> <label for="primaryMemberNameCaptureType2">Optional</label></li>
+									<li><input type="radio" value="1" name="primaryMemberNameCaptureType" id="primaryMemberNameCaptureType1" *{primaryMemberNameCaptureTypechecked1}*> <label for="primaryMemberNameCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Marketing Checkbox <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="primaryMemberMarketingCaptureType" id="primaryMemberMarketingCaptureType0" *{primaryMemberMarketingCaptureTypechecked0}*> <label for="primaryMemberMarketingCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="1" name="primaryMemberMarketingCaptureType" id="primaryMemberMarketingCaptureType1" *{primaryMemberMarketingCaptureTypechecked1}*> <label for="primaryMemberMarketingCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Phone <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="primaryMemberPhoneCaptureType" id="primaryMemberPhoneCaptureType0" *{primaryMemberPhoneCaptureTypechecked0}*> <label for="primaryMemberPhoneCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="2" name="primaryMemberPhoneCaptureType" id="primaryMemberPhoneCaptureType2" *{primaryMemberPhoneCaptureTypechecked2}*> <label for="primaryMemberPhoneCaptureType2">Optional</label></li>
+									<li><input type="radio" value="1" name="primaryMemberPhoneCaptureType" id="primaryMemberPhoneCaptureType1" *{primaryMemberPhoneCaptureTypechecked1}*> <label for="primaryMemberPhoneCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Email <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="primaryMemberEmailCaptureType" id="primaryMemberEmailCaptureType0" *{primaryMemberEmailCaptureTypechecked0}*> <label for="primaryMemberEmailCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="2" name="primaryMemberEmailCaptureType" id="primaryMemberEmailCaptureType2" *{primaryMemberEmailCaptureTypechecked2}*> <label for="primaryMemberEmailCaptureType2">Optional</label></li>
+									<li><input type="radio" value="1" name="primaryMemberEmailCaptureType" id="primaryMemberEmailCaptureType1" *{primaryMemberEmailCaptureTypechecked1}*> <label for="primaryMemberEmailCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">Date of Birth <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="primaryMemberDateOfBirthCaptureType" id="primaryMemberDateOfBirthCaptureType0" *{primaryMemberDateOfBirthCaptureTypechecked0}*> <label for="primaryMemberDateOfBirthCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="2" name="primaryMemberDateOfBirthCaptureType" id="primaryMemberDateOfBirthCaptureType2" *{primaryMemberDateOfBirthCaptureTypechecked2}*> <label for="primaryMemberDateOfBirthCaptureType2">Optional</label></li>
+									<li><input type="radio" value="1" name="primaryMemberDateOfBirthCaptureType" id="primaryMemberDateOfBirthCaptureType1" *{primaryMemberDateOfBirthCaptureTypechecked1}*> <label for="primaryMemberDateOfBirthCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">POS Magstripe <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="posPrimaryMemberMagstripeCaptureType" id="posPrimaryMemberMagstripeCaptureType0" *{posPrimaryMemberMagstripeCaptureTypechecked0}*> <label for="posPrimaryMemberMagstripeCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="2" name="posPrimaryMemberMagstripeCaptureType" id="posPrimaryMemberMagstripeCaptureType2" *{posPrimaryMemberMagstripeCaptureTypechecked2}*> <label for="posPrimaryMemberMagstripeCaptureType2">Optional</label></li>
+									<li><input type="radio" value="1" name="posPrimaryMemberMagstripeCaptureType" id="posPrimaryMemberMagstripeCaptureType1" *{posPrimaryMemberMagstripeCaptureTypechecked1}*> <label for="posPrimaryMemberMagstripeCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="formarea-row">
+						<div class="formarea-row-left">POS Photo <span class="required">*</span></div>
+						<div class="formarea-row-right">
+							<div class="formarea-row-right-input">
+								<ul class="options">
+									<li><input type="radio" value="0" name="posPrimaryMemberPhotoCaptureType" id="posPrimaryMemberPhotoCaptureType0" *{posPrimaryMemberPhotoCaptureTypechecked0}*> <label for="posPrimaryMemberPhotoCaptureType0">No Capture</label></li>
+									<li><input type="radio" value="2" name="posPrimaryMemberPhotoCaptureType" id="posPrimaryMemberPhotoCaptureType2" *{posPrimaryMemberPhotoCaptureTypechecked2}*> <label for="posPrimaryMemberPhotoCaptureType2">Optional</label></li>
+									<li><input type="radio" value="1" name="posPrimaryMemberPhotoCaptureType" id="posPrimaryMemberPhotoCaptureType1" *{posPrimaryMemberPhotoCaptureTypechecked1}*> <label for="posPrimaryMemberPhotoCaptureType1">Mandatory</label></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="formarea-row-last"><input type="submit" name="saveedit" value="Save*{mixedbutton}*" class="button" /> <input type="submit" name="saveexit" value="Save &amp; Exit" class="button" /> <input type="submit" name="cancel" value="Cancel" class="button-cancel" onClick="return confirmcancel();"/></div>
+			</form>
+			</div>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="outer-bottom">
+		<div class="outer-bottom-inner">
+			<div class="outer-bottom-inner-inner">
+				<div class="urow footer-row-powered">Powered by <a href="*{INSTALL_VISITICKETS}*" title="VisiTickets" target="_blank">VisiTickets</a><i class="fas fa-long-arrow-alt-right" style="margin-left:10px;"></i></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

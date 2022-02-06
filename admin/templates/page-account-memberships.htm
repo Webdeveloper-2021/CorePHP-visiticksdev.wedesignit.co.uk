@@ -1,0 +1,38 @@
+	<div class="urow breadcrumbs">
+		<ul>
+			<li class="notlast"><a href="#account" title="Account" class="changepage">Account</a></li>
+			<li>*{SETTING_PASSTITLE_PLURAL}*</li>
+		</ul>
+	</div>
+	<div class="urow">
+		<h1>*{SETTING_PASSTITLE_PLURAL}*</h1>
+	</div>
+	<!-- START BLOCK : NOMEMBERSHIPS -->
+	<div class="urow">
+		<p>You haven't purchased any *{SETTING_PASSTITLE_PLURAL}* yet.</p>
+	</div>
+	<!-- START BLOCK : NOMEMBERSHIPS -->
+	<div class="urow">
+		<!-- START BLOCK : MEMBERSHIP -->
+		<div class="urow memberships-cart-row">
+			<div class="memberships-cart-row-title">
+				<div class="product-row-title-top urow">*{name}* (ID: *{reference}*)</div>
+				<!-- START BLOCK : MEMBER -->
+				<div class="product-row-title-bottom urow">
+					<!-- START BLOCK : NAME -->
+					<span class="usemibold">*{child}* Name:</span>*{title}* *{name}*<br/>
+					<!-- END BLOCK : NAME -->
+					<!--<span class="usemibold">Address:</span> Same as billing<br/>-->
+					<!-- START BLOCK : DOB -->
+					<span class="usemibold">Date of Birth:</span> *{dob}*<br/>
+					<!-- END BLOCK : DOB -->
+				</div>
+				<!-- END BLOCK : MEMBER -->
+				<span class="usemibold *{expirationclass}*">Valid till:</span>&nbsp;<span class="*{expirationclass}*">*{expiresat}*</span>
+				<!-- START BLOCK : RENEW -->
+				<div class="product-row-title-button urow"><a href="#" title="Renew This Subscription" class="changepage membership-renew" data-id="*{id}*" data-membership-id="*{membershipid}*" onclick="loader(this);"><div class="sitebutton sitefont"><i class="fas fa-plus"></i>Renew This Subscription</a></div></div>
+				<!-- END BLOCK : RENEW -->
+			</div>
+		</div>
+		<!-- END BLOCK : MEMBERSHIP -->
+	</div>

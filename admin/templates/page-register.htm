@@ -1,0 +1,118 @@
+	<form name="checkout" id="checkout" action="#" method="post">
+	<div class="urow">
+		<h2 class="sitefont">Create Account</h2>
+		<p>Already registered? <a href="#login" title="Login Here" class="changepage">Login Here</a></p>
+	</div>
+	<form name="checkout" id="checkout" action="#" method="post">
+	<div class="urow uinlineerror uhide uspaced-small" id="formerror">Please correct the errors highlighted below:</div>
+		<div class="urow form-row">
+			<ul>
+				<li><input type="radio" value="INDIVIDUAL" name="usertype" id="INDIVIDUAL" onclick="showHidePanel7();" checked="checked" tabindex="1"><label for="INDIVIDUAL">I am an individual</label></li>
+				<li><input type="radio" value="COMPANY" name="usertype" id="COMPANY" onclick="showHidePanel7();"><label for="COMPANY" tabindex="1">I represent a company</label></li>
+			</ul>
+		</div>
+		<div class="urow form-row uhide" id="showcompany">
+			<div class="form-row-label">Company Name<span class="form-required">*</span></div>
+			<div class="form-row-field"><input name="company" id="companyname" type="text" size="20" value="" tabindex="2" class="textbox large normal"></div>
+		</div>
+<!-- START BLOCK : SHOWTITLE -->
+	<div class="urow form-row">
+		<div class="form-row-label">Title<span class="form-required requiredfield">*</span></div>
+		<div class="form-row-field"><input name="title" id="title" type="text" size="20" value="*{title}*" tabindex="3" class="textbox small small-left normal" required="required"></div>
+	</div>
+<!-- END BLOCK : SHOWTITLE -->
+	<div class="urow form-row">
+		<div class="form-row-label">Name<span class="form-required requiredfield">*</span></div>
+		<div class="form-row-field">
+			<input name="firstname" id="firstname" type="text" size="20" value="*{firstname}*" tabindex="4" class="textbox small small-left normal" required="required">
+			<input name="lastname" id="lastname" type="text" size="20" value="*{lastname}*" tabindex="5" class="textbox small normal" required="required">
+		</div>
+	</div>
+	<div class="urow form-row">
+		<div class="form-row-label">Telephone<span class="form-required">*</span></div>
+		<div class="form-row-field"><input name="telephone" id="telephone" type="tel" size="20" value="*{telephone}*" tabindex="6" class="textbox large normal" required="required"></div>
+	</div>
+	<div class="urow form-row">
+		<div class="form-row-label">Email<span class="form-required">*</span></div>
+		<div class="form-row-field"><input name="email" id="email" type="email" size="20" value="*{email}*" tabindex="7" class="textbox large normal" required="required"></div>
+	</div>
+	<div class="urow form-row">
+		<div class="form-row-label form-help">Password<span class="form-required">*</span>
+			<div class="tooltip"><i class="fas fa-question-circle"></i>
+				<div class="tooltip-left">Your password must contain at least one number, one special character, one lower case letter and one upper case letter.<i></i></div>
+			</div></div>
+		<div class="form-row-field"><input name="password" id="password" type="password" size="20" value="*{password}*" tabindex="8" class="textbox large normal" required="required"></div>
+	</div>
+	<div class="urow form-row">
+		<div class="form-row-label">Repeat Password<span class="form-required">*</span></div>
+		<div class="form-row-field"><input name="repeatpassword" id="repeatpassword" type="password" size="20" value="*{repeatpassword}*" tabindex="9" class="textbox large normal" required="required"></div>
+	</div>
+	<div class="urow form-row">
+		<div class="form-row-label">Find Address</div>
+		<div class="form-row-field postcode-lookup">
+			<div class="postcode-lookup-left">
+				<div id="postcode" tabindex="10"></div>
+			</div>
+			<div class="postcode-lookup-right">
+				<div class="postcode-lookup-button normal" id="postcode-lookup-button" tabindex="11"><i class="fas fa-search"></i></div>
+			</div>
+		</div>
+	</div>
+		<div class="urow form-row">
+			<div class="form-row-label">Address Line 1<span class="form-required">*</span></div>
+			<div class="form-row-field"><input name="lookup_first_line" id="lookup_first_line" type="text" size="20" value="" class="textbox large normal"></div>
+		</div>
+		<div class="urow form-row">
+			<div class="form-row-label">Address Line 2</div>
+			<div class="form-row-field"><input name="lookup_second_line" id="lookup_second_line" type="text" size="20" value="" class="textbox large normal"></div>
+		</div>
+		<div class="urow form-row">
+			<div class="form-row-label">Town/City<span class="form-required">*</span></div>
+			<div class="form-row-field"><input name="lookup_post_town" id="lookup_post_town" type="text" size="20" value="" class="textbox large normal"></div>
+		</div>
+		<div class="urow form-row">
+			<div class="form-row-label">Postcode<span class="form-required">*</span></div>
+			<div class="form-row-field"><input name="lookup_postcode" id="lookup_postcode" type="text" size="20" value="" class="textbox large normal"></div>
+		</div>
+		<div class="urow form-row">
+			<div class="form-row-label">Country<span class="form-required">*</span></div>
+			<div class="form-row-field">
+				<select name="country" id="country" class="textbox large normal" required="required">
+					<option value=""></option>
+					<!-- START BLOCK : COUNTRY -->
+					<option value="*{countrykey}*">*{countryname}*</option>
+					<!-- END BLOCK : COUNTRY -->
+				</select>
+			</div>
+		</div>
+<!-- START BLOCK : SHOWMARKETING -->
+	<div class="urow form-row marketing"><input name="marketing" id="marketing" type="checkbox" value="YES" tabindex="12"><label for="marketing">*{SETTING_MARKETINGTEXT}*</label></div>
+<!-- END BLOCK : SHOWMARKETING -->
+	<div class="urow account-next"><input type="button" name="submit-reg-form" id="submit-reg-form" value="Create Account &gt;" class="sitebutton sitefont" tabindex="13" onclick="loader(this);"/></div>
+		<!-- START BLOCK : REDIRECT -->
+		<input type="hidden" name="redirect" value="*{redirect}*">
+		<!-- END BLOCK : REDIRECT -->
+	</form>
+<script>
+IdealPostcodes.PostcodeLookup.setup({
+apiKey: '*{INSTALL_POSTCODELOOKUPAPIKEY}*',
+context: '#postcode',
+outputFields: {
+line_1: '#lookup_first_line',
+line_2: '#lookup_second_line',
+line_3: '#lookup_third_line',
+post_town: '#lookup_post_town',
+postcode: '#lookup_postcode',
+country: '#country',
+organisation_name: '#companyname'
+},
+onAddressPopulated: function()
+{
+FieldStatus('.postcode-lookup-input','');
+FieldStatus('#postcode-lookup-button','');
+$('.idpc-select-container').hide();
+},
+button: '#postcode-lookup-button',
+inputClass: 'postcode-lookup-input normal'
+});
+</script>

@@ -1,0 +1,43 @@
+	<div class="urow tabs-top">
+		<div class="tabs">
+			<ul>
+				<li><a href="#categories" title="*{SETTING_TAB_CATEGORIES}*" class="changepage first">
+					<div class="tabs-main"><i class="fas fa-ticket-alt"></i>*{SETTING_TAB_CATEGORIES}*</div>
+				</a></li>
+				<li><a href="#calendar" title="*{SETTING_TAB_CALENDAR}*" class="changepage last active">
+					<div class="tabs-main"><i class="fas fa-calendar-alt"></i>*{SETTING_TAB_CALENDAR}*</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="urow tabs-bottom">
+		<div class="urow">
+			<h1 class="sitefont">*{name}*</h1>
+		</div>
+		<div class="urow" id="memberships-content">
+			<form id="memberships-form">
+			<div class="product-row catalog urow odd item product-row-left">
+				<div class="product-row-picturetitleprice">
+					<div class="product-row-title-top urow">How many people would you like to attend?</div>
+					<div class="product-row-title-bottom urow">You have <span class="usemibold">*{validmembershipcount}* *{SETTING_PASSTITLE_PLURAL}*</span> in your account that are valid for this event.</div>
+<!-- START BLOCK : EXPIREDMEMBERSHIPS -->
+					<div class="product-row-title-bottom uinlineerror urow">You have <span class="usemibold">*{expiredmembershipcount}* expired *{SETTING_PASSTITLE_SINGLE}*</span> in your account. Would you like to <a href="#account-memberships" title="Renew this *{SETTING_PASSTITLE_SINGLE}*">Renew this *{SETTING_PASSTITLE_SINGLE}*</a>.</div>
+<!-- END BLOCK : EXPIREDMEMBERSHIPS -->
+					<div class="product-row-title-bottom urow">(You can add more *{SETTING_PASSTITLE_PLURAL}* on the next page if required).</div>
+				</div>
+				<div class="product-price-qty">
+					<div class="product-row-qty toppadding">
+						<div class="product-row-qty adjust less"><a href="#" title="Remove"><i class="fas fa-minus-circle"></i></a></div>
+						<div class="product-row-qty adjust amount"><input name="qty" id="qty" type="number" size="2" value="1" min="1" max="99" maxlength="2" class="textbox cart noarrows" required="required"></div>
+						<div class="product-row-qty adjust more"><a href="#" title="Add"><i class="fas fa-plus-circle"></i></a></div>
+					</div>
+				</div>
+			</div>
+			<div class="total-row urow">
+				<div class="product-row-picturetitleprice">&nbsp;</div>
+				<div class="product-row-qty"><a href="#" title="Select Date &amp; Time" class="sitebutton sitefont changepage check-memberships" onclick="loader(this);">Continue &gt;</a></div>
+			</div>
+			<input type="hidden" name="eventid" value="*{id}*">
+			</form>
+		</div>
+	</div>

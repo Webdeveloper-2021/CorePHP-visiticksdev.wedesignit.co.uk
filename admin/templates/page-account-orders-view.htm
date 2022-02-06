@@ -1,0 +1,89 @@
+	<div class="urow breadcrumbs">
+		<ul>
+			<li class="notlast"><a href="#account" title="Account" class="changepage">Account</a></li>
+			<li class="notlast"><a href="#account-orders" title="Order History" class="changepage">Order History</a></li>
+			<li>Order *{reference}*</li>
+		</ul>
+	</div>
+	<div class="urow">
+		<h1>Order *{reference}*</h1>
+	</div>
+	<div class="urow halfed">
+		<div class="urow">
+			<div class="content-half">
+				<div class="urow form-row form-title">
+					<h2 class="sitefont">Your Order Summary</h2>
+				</div>
+<!-- START BLOCK : ITEM -->
+				<div class="urow summary-cart-row">
+					<div class="summary-cart-row-title">
+						<div class="product-row-title-top urow">*{name}* *{refunded}*</div>
+						<div class="product-row-title-bottom urow">*{description}*</div>
+					</div>
+					<div class="summary-cart-row-price">*{refundedsign}*&pound;*{price}*</div>
+				</div>
+<!-- END BLOCK : ITEM -->
+<!-- START BLOCK : EVENT -->
+				<div class="urow summary-cart-row">
+					<div class="summary-cart-row-title">
+						<div class="product-row-title-top urow">*{name}* *{refunded}*</div>
+<!-- START BLOCK : EVENTITEM -->
+						<div class="product-row-title-bottom urow">*{name}* &times;*{quantity}* &mdash; £*{price}*</div>
+<!-- END BLOCK : EVENTITEM -->
+						<div class="product-row-title-bottom urow">*{date}* *{starthour}*:*{startminute<10?0:''}**{startminute}*</div>
+<!-- START BLOCK : CHANGEDATETIME -->
+						<div class="urow form-row form-addmore"><a href="#account-orders-update_*{id}*|*{eventsessionid}*" title="Change Date/Time" class="changepage"><i class="fas fa-calendar-alt"></i>Change Date/Time</a></div>
+<!-- END BLOCK : CHANGEDATETIME -->
+					</div>
+					<div class="summary-cart-row-price">*{refundedsign}*&pound;*{price}*</div>
+				</div>
+<!-- END BLOCK : EVENT -->
+				<div class="urow summary-cart-row">
+					<div class="urow form-row form-addmore"><a href="#" title="Resend Confirmation Email" id="resend-confirmation-email" data-orderid="*{id}*"><i class="fas fa-envelope"></i><span>Resend Confirmation Email</span></a></div>
+				</div>
+			</div>
+			<div class="content-half">
+				<div class="urow form-row form-title">
+					<div class="form-title-half">
+						<h2 class="sitefont">Your Order Details</h2>
+					</div>
+				</div>
+				<div class="urow form-row form-title">
+					<div class="form-title-half form-title-half-header">Billing Address</div>
+				</div>
+				<div class="urow form-row">*{title}* *{firstName}* *{lastName}*<br/>*{addressLine1}*<br/>*{addressLine2}*<br/>*{addressLine3}*<br/>*{postcode}*<br>*{country}*</div>
+				<div class="urow form-row"><span class="usemibold">Email:</span> *{email}*<br/><span class="usemibold">Tel:</span> *{phone}*</div>
+<!-- START BLOCK : PAYMENT -->
+				<div class="urow form-row form-title">
+					<div class="form-title-half form-title-half-header">Payment Details</div>
+				</div>
+<!-- START BLOCK : CARD -->
+				<div class="urow form-row summary-cart-payment">
+					<div class="summary-cart-payment-left"><i class="fas fa-credit-card"></i></div>
+					<div class="summary-cart-payment-right">Card (Ending *{cardnumber}*)<br/>Exp: *{expirydate}*<br/>CVV: ***</div>
+				</div>
+<!-- END BLOCK : CARD -->
+<!-- START BLOCK : PAYPAL -->
+				<div class="urow form-row summary-cart-payment">
+					<div class="summary-cart-payment-right">Paypal</div>
+				</div>
+<!-- END BLOCK : PAYPAL -->
+<!-- START BLOCK : APPLE -->
+				<div class="urow form-row summary-cart-payment">
+					<div class="summary-cart-payment-right">Apple Pay</div>
+				</div>
+<!-- END BLOCK : APPLE -->
+<!-- END BLOCK : PAYMENT -->
+			</div>
+		</div>
+		<div class="urow summary-cart-total">
+			<div class="content-half">
+				<div class="urow">
+					<div class="summary-cart-row-title">
+						<div class="product-row-title-top urow">Order Total</div>
+					</div>
+					<div class="summary-cart-row-price">&pound;*{total}*</div>
+				</div>
+			</div>
+		</div>
+	</div>

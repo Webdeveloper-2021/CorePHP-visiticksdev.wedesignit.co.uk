@@ -1,0 +1,272 @@
+<script type="text/javascript">
+<!-- START IGNORE -->
+$(function() {
+	let availableDates = *{dates}*,
+	ticketsNeeded = *{ticketsNeeded}*,
+	datePickerOptions = {
+		inline:true,
+		timepicker:false,
+		datepicker:true,
+		format:'d/m/Y',
+		onSelectDate: function(dateText, inst) {
+			let date = new Date(dateText),
+					dateAsString = date.toDateString(),
+					year = date.getFullYear(),
+					month = date.getMonth(),
+					day = date.getDate();
+
+			month = month < 10 ? '0' + (month + 1) : month + 1;
+			day = day < 10 ? '0' + day : day;
+
+			const nth = function(d) {
+				if (d > 3 && d < 21) return 'th';
+				switch (d % 10) {
+					case 1:  return "st";
+					case 2:  return "nd";
+					case 3:  return "rd";
+					default: return "th";
+				}
+			};
+			const monthText = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"][date.getMonth()];
+
+			dateAsString = day + nth(day) + ' ' + monthText + ' ' + year;
+
+			$('.selected-day').text(dateAsString);
+
+			let ymd = year + '' + month + '' + day,
+				times_str = '';
+
+			$('#date-input').val(ymd);
+			var flag = 0 ;
+			var display_time = "";
+			$.each(availableDates[ymd]['times'], function (index, time) {
+				if (time.availableCapacity > ticketsNeeded){
+					if(flag){
+						times_str += ",";	
+						display_time = time.startTime;
+					}
+					times_str += time.startTime;
+					flag = 1;
+				}
+
+			});
+
+			let times_arr = times_str.split(','),
+				defaultTime = false;
+			if (times_arr.length === 1) {
+				$('#time-input').val(times_arr[0]);
+
+				$.each(availableDates[ymd]['times'], function (index, t) {
+					if (t.startHour == times_arr[0].split(':')[0] && t.startMinute == times_arr[0].split(':')[1])
+						$('#sessionid-input').val(t.eventSessionId);
+				});
+
+				defaultTime = times_arr[0];
+
+				$('#timeselected').text(defaultTime).removeClass('uhide');
+				$('#notimesavailable').addClass('uhide');
+				$('.calendar-box-time').addClass('uhide');
+			}
+
+			if (times_arr.length > 1) {
+				$('.calendar-box-time').removeClass('uhide');
+				$('#notimesavailable').addClass('uhide');
+				$('#timeselected').text(defaultTime).addClass('uhide');
+				console.log(times_arr);
+				$("#bookingtime").datetimepicker({
+					allowTimes: times_arr,
+					defaultTime: defaultTime
+				});
+				$('#bookingtime').datetimepicker('reset');
+			}
+		},
+		defaultDate: '*{date}*',
+		minDate: new Date(),
+		yearStart: 2021,
+		yearEnd: *{maxdate}*,
+		beforeShowDay: available,
+		onChangeMonth: getAvailable
+	};
+
+	function getAvailable(dateText, inst) {
+		let date = new Date(dateText),
+				year = date.getFullYear(),
+				month = date.getMonth();
+
+		$.ajax({
+			url: "/get_available_dates.php",
+			data: {
+				year: year,
+				month: month + 1,
+				event: *{eventid}*
+			},
+			dataType: "json",
+
+			success: function(data)
+			{
+				if(data["completed"])
+				{
+					availableDates = JSON.parse(data['dates']);
+					$("#bookingdate").datetimepicker(datePickerOptions);
+				}
+				else
+				{
+					$('#formerror').text(data['error']).removeClass('uhide');
+				}
+			}
+		});
+	}
+
+	function available(date) {
+		let m = date.getMonth()+1;
+		let month = m < 10 ? '0' + m : m;
+		let d =  date.getDate();
+		let day = d < 10 ? '0' + d : d;
+		let ymd =  date.getFullYear() + '' + month + '' + day;
+
+		if ($.inArray(ymd, Object.keys(availableDates)) !== -1) {
+			let available = false;
+			$.each(availableDates[ymd]['times'], function(index, time) {
+				if (time.availableCapacity > 0 && time.availableCapacity < ticketsNeeded)
+					return [false,"","limited"];
+
+				if (time.availableCapacity > 0)
+					available = true;
+			});
+
+			if (available)
+				return [true,"","Available"];
+
+			return [false,"","unAvailable"];
+		}
+
+		return [false,"","unAvailable"];
+	}
+
+	$("#bookingdate").datetimepicker(datePickerOptions);
+
+	let times_str = '',
+		times_arr = [];
+
+	$.each(availableDates[*{dayymd}*]['times'], function (index, time) {
+		if (time.availableCapacity > ticketsNeeded)
+			times_arr.push(time.startTime);
+	});
+
+	if (times_arr.length === 1) {
+		$('#time-input').val(times_arr[0]);
+
+		$.each(availableDates[*{dayymd}*]['times'], function (index, t) {
+			if (t.startHour == times_arr[0].split(':')[0] && t.startMinute == times_arr[0].split(':')[1])
+				$('#sessionid-input').val(t.eventSessionId);
+		});
+
+		var defaultTime = times_arr[0];
+
+		$('#timeselected').text(defaultTime).removeClass('uhide');
+		$('#notimesavailable').addClass('uhide');
+		$('.calendar-box-time').addClass('uhide');
+	}
+
+	if (times_arr.length > 1) {
+		$('.calendar-box-time').removeClass('uhide');
+		$('#notimesavailable').addClass('uhide');
+		$('#timeselected').text(defaultTime).addClass('uhide');
+	}
+	console.log(times_arr);
+	$("#bookingtime").datetimepicker({
+		inline:true,
+		timepicker:true,
+		datepicker:false,
+		format:'H:i',
+		defaultTime: '*{timestart}*',
+		allowTimes: times_arr,
+		onSelectTime: function(time) {
+			$('#time-input').val(new Date(time).getTime());
+
+			$.each(availableDates[$('#date-input').val()]['times'], function (index, t) {
+				if (t.startHour == new Date(time).getHours() && t.startMinute == new Date(time).getMinutes())
+					$('#sessionid-input').val(t.eventSessionId);
+			});
+		},
+	});
+});
+</script>
+<!-- END IGNORE -->
+	<div class="urow breadcrumbs">
+		<ul>
+			<li class="notlast"><a href="#account" title="Account" class="changepage">Account</a></li>
+			<li class="notlast"><a href="#account-orders" title="Order History" class="changepage">Order History</a></li>
+			<li class="notlast"><a href="#account-orders-view_*{id}*" title="Order *{reference}*" class="changepage">Order *{reference}*</a></li>
+			<li>Update Booking</li>
+		</ul>
+	</div>
+	<div class="urow">
+		<h1>Order *{reference}*: *{eventname}*</h1>
+		<p><span class="usemibold">Tickets: </span>
+			<!-- START BLOCK : EVENTITEM -->
+			*{name}* &times;*{quantity}*
+			<!-- END BLOCK : EVENTITEM -->
+			<br/><span class="usemibold">Booking:</span> *{date}* at *{timestart}*</p>
+	</div>
+	<div class="urow">
+		<form id="account-event-time-form">
+<div class="calendar-unit-container">
+		<div class="calendar-unit left">
+			<div class="urow">
+				<h2 class="sitefont">1. Select Your Preferred Date:</h2>
+				<p>When would you like to attend? You can change the date and time after booking (subject to availability).</p>
+			</div>
+			<div class="urow">
+				<div class="calendar-container">
+					<div class="urow">
+						<div id="bookingdate"></div>
+					</div>
+					<div class="urow">
+						<div class="key">
+							<div class="key-row notlast">
+								<div class="key-row-left">
+									<div class="key-row-left-inner available">&nbsp;</div>
+								</div>
+								<div class="key-row-right">Tickets Available</div>	
+							</div>
+							<div class="key-row notlast">
+								<div class="key-row-left">
+									<div class="key-row-left-inner limited">&nbsp;</div>
+								</div>
+								<div class="key-row-right">Limited Availability</div>	
+							</div>
+							<div class="key-row">
+								<div class="key-row-left">
+									<div class="key-row-left-inner unavailable">&nbsp;</div>
+								</div>
+								<div class="key-row-right">No Tickets Available</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="calendar-unit right">
+			<div class="urow">
+				<h2 class="sitefont">2. Book Your Tickets:</h2>
+			</div>
+			<div class="urow calendar-box-right-middle"><span class="usemibold">Event:</span>&nbsp;*{eventname}*</div>
+			<div class="urow calendar-box-right-middle"><span class="usemibold">Selected Day:</span>&nbsp;<span class="selected-day">*{date}*</span></div>
+			<div class="urow calendar-box-right-bottom"><span class="usemibold">Selected Time:</span>&nbsp;<span id="notimesavailable">No Available Times</span><span id="timeselected"></span></div>
+			<div class="urow">
+				<div class="calendar-box-time uhide">
+					<div id="bookingtime"></div>
+				</div>
+			</div>
+			<div class="urow uspaced-small uinlineerror uhide" id="formerror" style="margin-top:10px;">One or more of your memberships expire before this date.</div>
+			<div class="urow" style="margin-top:25px;"><a href="#account-orders-view" title="Update Booking" class="sitebutton sitefont changepage account-change-time" style="margin-top: 10px;"><i class="fas fa-plus"></i>Update Booking</a></div>
+			<input type="hidden" name="date" value="*{dayymd}*" id="date-input">
+			<input type="hidden" name="time" value="*{timestart}*" id="time-input">
+			<input type="hidden" name="orderId" value="*{id}*" id="orderid">
+			<input type="hidden" name="eventSessionId" value="" id="sessionid-input">
+			<input type="hidden" name="originalEventSessionId" value="*{eventsessionid}*">
+		</div>
+		</form>
+</div>
+	</div>
